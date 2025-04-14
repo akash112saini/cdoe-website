@@ -565,7 +565,7 @@ ul {
 
 .btn:after {
   content: "";
-  background: #EEBD05;
+  background: var(--main-color);
   position: absolute;
   transition: all 0.3s ease-in;
   z-index: -1;
@@ -617,8 +617,8 @@ ul {
 
 .btn-border-black:hover,
 .btn-border-black:focus {
-  color: var(--heading-color);
-  background: var(--main-color);
+  color: var(--white-color);
+  background: var(--heading-color);
   border: 2px solid var(--main-color);
 }
 
@@ -5082,4 +5082,145 @@ ul {
 
 .why-icon{
   padding: 10px;
+}
+
+
+.custom-process-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px;
+  background-color: #f8f8f8;
+}
+
+.custom-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.custom-left-column {
+  width: 50%;
+  padding-right: 30px;
+}
+
+.custom-left-column h2 {
+  margin-top: 70px;
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.custom-left-column p {
+  font-size: 14px;
+  text-align: justify;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.custom-get-started {
+  padding: 12px 30px;
+  background-color: #00ff80;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.custom-get-started:hover {
+  background-color: #00e673;
+}
+
+.custom-right-column {
+  width: 40%;
+  text-align: center;
+}
+
+.custom-right-column img {
+  max-width: 100%;
+  height: auto;
+}
+
+.custom-flow {
+  margin-top: 20px;
+}
+
+.custom-step {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.custom-arrow {
+  font-size: 24px;
+  color: #00ff80;
+  margin: 10px 0;
+}
+@media all and (max-width: 950px) {
+  .custom-process-section {
+      flex-direction: column;
+      padding: 30px 15px;
+  }
+
+  .custom-container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .custom-left-column {
+      width: 100%;
+      padding-right: 0;
+      text-align: center;
+      margin-bottom: 20px;
+  }
+
+  .custom-left-column h2 {
+      font-size: 28px;
+      text-align: center;
+  }
+
+  .custom-left-column p {
+      font-size: 14px;
+      padding: 0px 20px;
+      margin-bottom: 20px;
+  }
+
+  .custom-get-started {
+      padding: 10px 20px;
+      font-size: 14px;
+  }
+
+  .custom-right-column {
+      width: 100%;
+      text-align: center;
+  }
+
+  .custom-right-column img {
+      max-width: 70%;
+      margin-bottom: 20px;
+  }
+
+  .custom-flow {
+      margin-top: 20px;
+      text-align: center;
+  }
+
+  .custom-step {
+      font-size: 16px;
+      margin: 10px 0;
+  }
+
+  .custom-arrow {
+      font-size: 20px;
+      margin: 10px 0;
+  }
+}
+
+@media all and (max-width: 550px) {
+.custom-right-column img {
+  max-width: 90%;
+  margin-bottom: 20px;
+}
 }
