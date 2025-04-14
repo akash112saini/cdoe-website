@@ -1,0 +1,25 @@
+name: Deploy to cPanel
+
+on:
+  push:
+    branches:
+      - main  # Change to your deployment branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy to cPanel via SSH
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.CPANEL_HOST }}
+          username: ${{ secrets.CPANEL_USER }}
+          key: ${{ secrets.CPANEL_SSH_KEY }}
+          port: 22
+          script: |
+            cd /home/tmuac1/public_html/other_websites/test.cdoe.tmu.ac.in  # Change this to your project path
+            git pull origin main
