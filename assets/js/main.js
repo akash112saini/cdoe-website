@@ -381,10 +381,14 @@ $(document).ready(function(){
 
 // List of image sources in the gallery
 const images = [
-    "assets/img/gallery/1.png",
-    "assets/img/gallery/1.png",
-    "assets/img/gallery/1.png",
-    "assets/img/gallery/1.png",
+    "assets/img/gallery/1.webp",
+    "assets/img/gallery/2.webp",
+    "assets/img/gallery/3.webp",
+    "assets/img/gallery/4.webp",
+    "assets/img/gallery/5.webp",
+    "assets/img/gallery/6.webp",
+    "assets/img/gallery/7.webp",
+    "assets/img/gallery/8.webp",
     // Add more image paths here
 ];
 
