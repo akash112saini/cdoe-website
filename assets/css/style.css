@@ -653,7 +653,7 @@ ul {
     ## Section title
 ------------------------------------------------*/
 .section-title {
-  margin-bottom: 45px;
+  margin-bottom: 0px;
   position: relative;
 }
 
@@ -4119,6 +4119,11 @@ ul {
   font-weight: 500;
 }
 
+.single-course-inner .details .details-inner p {
+  font-weight: 400;
+  font-size: 12px;
+}
+
 .single-course-inner .details .emt-user {
   margin-bottom: 13px;
 }
@@ -5223,4 +5228,11 @@ ul {
   max-width: 90%;
   margin-bottom: 20px;
 }
+}
+
+.admiossion-container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
 }
