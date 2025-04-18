@@ -290,3 +290,135 @@ nav.shrink{
   opacity: 1;
 }
   
+
+/* Degree section css */
+  .degree-showcase {
+    background: #f9f9f9;
+    font-family: 'Segoe UI', sans-serif;
+    color: #1c1c1c;
+    position: relative;
+    z-index: 1;
+  }
+
+  .degree-showcase::before {
+    content: "";
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background-image: url('logo.png'); /* Optional watermark */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 40%;
+    opacity: 0.03;
+    z-index: 0;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #001f4d;
+    position: relative;
+    z-index: 2;
+  }
+
+  .university-name {
+    font-size: 2.5rem;
+    color: #f57c00;
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+    width: fit-content;
+    margin: auto;
+  }
+
+  .university-name span{
+      font-size: 1rem;
+      position: absolute;
+      top:-15px;
+      left: 0;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #001f4d;
+  }
+
+  .degree-card {
+    max-width: 450px;
+    transition: transform 0.3s ease;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+  }
+
+  .degree-card:hover {
+    transform: scale(1.02);
+  }
+
+  .degree-caption {
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 500;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Blobs */
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+    z-index: 1;
+    animation: float 10s infinite ease-in-out alternate;
+  }
+
+  .blob1 {
+    background: #ff6f61;
+    width: 300px;
+    height: 300px;
+    top: 10%;
+    left: -100px;
+  }
+
+  .blob2 {
+    background: #1e88e5;
+    width: 200px;
+    height: 200px;
+    bottom: 5%;
+    right: -60px;
+  }
+
+  .blob3 {
+    background: #ffd54f;
+    width: 150px;
+    height: 150px;
+    top: 50%;
+    right: 10%;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0) translateX(0); }
+    100% { transform: translateY(-30px) translateX(20px); }
+  }
+
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 2rem;
+    }
+    .university-name {
+      font-size: 1.5rem;
+    }
+    .blob1, .blob2, .blob3 {
+      filter: blur(60px);
+    }
+  }
+  .btn-dark{
+      background-color: #001f4d;
+      padding-top:0;
+  }
+  .btn.btn-dark::after{
+      background-color: #f57c00;
+  }
+
