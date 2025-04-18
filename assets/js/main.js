@@ -448,3 +448,11 @@ function prevImage() {
         lightboxImg.classList.add('show');  // Add the show class to fade in
     }, 200);  // Wait for 0.2 sec before changing the image
 }
+
+ 
+// Optional: Autoplay
+const carousel = new bootstrap.Carousel('#heroCarousel', {
+    interval: 100,
+    ride: 'carousel'
+  });
+  
