@@ -315,7 +315,7 @@ nav.shrink{
     z-index: 0;
   }
 
-  .section-title {
+  .degree-showcase .section-title {
     font-size: 2.5rem;
     font-weight: 600;
     color: #001f4d;
@@ -323,7 +323,7 @@ nav.shrink{
     z-index: 2;
   }
 
-  .university-name {
+  .degree-showcase .university-name {
     font-size: 2.5rem;
     color: #f57c00;
     font-weight: 700;
@@ -333,7 +333,7 @@ nav.shrink{
     margin: auto;
   }
 
-  .university-name span{
+  .degree-showcase .university-name span{
       font-size: 1rem;
       position: absolute;
       top:-15px;
@@ -343,7 +343,7 @@ nav.shrink{
       color: #001f4d;
   }
 
-  .degree-card {
+  .degree-showcase .degree-card {
     max-width: 450px;
     transition: transform 0.3s ease;
     border: 1px solid #ddd;
@@ -352,11 +352,11 @@ nav.shrink{
     z-index: 2;
   }
 
-  .degree-card:hover {
+  .degree-showcase .degree-card:hover {
     transform: scale(1.02);
   }
 
-  .degree-caption {
+  .degree-showcase .degree-caption {
     font-size: 1.1rem;
     color: #333;
     font-weight: 500;
@@ -365,7 +365,7 @@ nav.shrink{
   }
 
   /* Blobs */
-  .blob {
+  .degree-showcase .blob {
     position: absolute;
     border-radius: 50%;
     filter: blur(80px);
@@ -374,7 +374,7 @@ nav.shrink{
     animation: float 10s infinite ease-in-out alternate;
   }
 
-  .blob1 {
+  .degree-showcase .blob1 {
     background: #ff6f61;
     width: 300px;
     height: 300px;
@@ -382,7 +382,7 @@ nav.shrink{
     left: -100px;
   }
 
-  .blob2 {
+  .degree-showcase .blob2 {
     background: #1e88e5;
     width: 200px;
     height: 200px;
@@ -390,7 +390,7 @@ nav.shrink{
     right: -60px;
   }
 
-  .blob3 {
+  .degree-showcase .blob3 {
     background: #ffd54f;
     width: 150px;
     height: 150px;
@@ -404,21 +404,21 @@ nav.shrink{
   }
 
   @media (max-width: 768px) {
-    .section-title {
+    .degree-showcase .section-title {
       font-size: 2rem;
     }
-    .university-name {
+    .degree-showcase .university-name {
       font-size: 1.5rem;
     }
     .blob1, .blob2, .blob3 {
       filter: blur(60px);
     }
   }
-  .btn-dark{
+  .degree-showcase .btn-dark{
       background-color: #001f4d;
       padding-top:0;
   }
-  .btn.btn-dark::after{
+  .degree-showcase .btn.btn-dark::after{
       background-color: #f57c00;
   }
 
