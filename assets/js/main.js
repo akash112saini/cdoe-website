@@ -1,10 +1,22 @@
 // on scroll down add class shrink in navbar and on scroll up remove class shrink
+
+window.addEventListener('DOMContentLoaded', function () {
+    const navbar = document.querySelector('.cus-nav');
+    
+    if (this.window.innerWidth < 992) {
+        navbar.classList.add('shrink');
+    }
+});
+
 window.addEventListener('scroll', function () {
     const navbar = document.querySelector('.cus-nav');
-    if (window.scrollY > 0) {
-        navbar.classList.add('shrink');
-    } else {
-        navbar.classList.remove('shrink');
+    
+    if (this.window.innerWidth >= 992) {
+        if (window.scrollY > 0) {
+            navbar.classList.add('shrink');
+        } else {
+            navbar.classList.remove('shrink');
+        }
     }
 });
 
