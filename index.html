@@ -211,109 +211,113 @@
     </div>
     <!-- course area End -->
 
-    <div class="container d-block d-sm-none">
-        <div class="row justify-content-center">
-            <div class="col-xl-8 col-lg-10 col-md-11">
-                <div class="section-title style-white text-center">
-                    <h2 class="title">Gallery</h2>
+   <style>
+    @media screen and (max-width:786px) {
+        .tmu-text-primary{
+            font-size: 32px;
+        }
+    }
+   </style>
+
+    <!-- Gallery Section -->
+<section class="gallery-section">
+    <div class="container">
+        <div class="gallery-header">
+            <h2 Class="tmu-text-primary mb-2 mt-5"><span>Convocation </span><span>Gallery</span></h2>
+            
+        </div>
+
+        <!-- <div class="gallery-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="guest">Guest</button>
+            <button class="filter-btn" data-filter="students">students</button>
+        </div> -->
+
+        <style>
+            @media (max-width: 768px) {
+            .v2.gallery-grid{
+                gap: 1rem;
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+        }
+        @media (max-width: 575px) {
+            .v2.gallery-grid{
+                gap: 0.5rem;
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+        }
+        @media (max-width: 504px) {
+            .v2.gallery-grid{
+                gap: 0.4rem;
+                grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+            }
+        }
+        </style>
+        <div class="gallery-grid v2">
+            <!-- Infra -->
+            <div class="gallery-item" data-category="students">
+                <img src="./assets/img/convocation/1.webp"
+                    alt="Main Academic Block">
+                <div class="gallery-item-info">
+                    <h3 class="gallery-item-title"></h3>
+                    <p class="gallery-item-category"></p>
                 </div>
             </div>
-        </div>
-
-        <!-- Gallery Section (Grid Layout for Desktop, Carousel for Mobile) -->
-        <div class="owl-carousel gallery">
-            <div class="gallery-item">
-                <img src="https://neuroinjurycare.com/wp-content/uploads/2023/12/How-A-Neurologist-Helps-Plan-Long-Term-Care-After-A-Physical-Injury.jpg"
-                    alt="Image 1" onclick="openLightbox(0)">
-                <div class="caption">Image 1</div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://neuroinjurycare.com/wp-content/uploads/2023/12/How-A-Neurologist-Helps-Plan-Long-Term-Care-After-A-Physical-Injury.jpg"
-                    alt="Image 2" onclick="openLightbox(1)">
-                <div class="caption">Image 2</div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://neuroinjurycare.com/wp-content/uploads/2023/12/How-A-Neurologist-Helps-Plan-Long-Term-Care-After-A-Physical-Injury.jpg"
-                    alt="Image 3" onclick="openLightbox(2)">
-                <div class="caption">Image 3</div>
-            </div>
-            <div class="gallery-item">
-                <img src="assets/img/gallery/1.png" alt="Image 4" onclick="openLightbox(3)">
-                <div class="caption">Image 4</div>
-            </div>
-            <!-- Add more images here -->
-        </div>
-    </div>
-
-    <!-- Lightbox Modal -->
-    <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
-        <span class="close-btn" onclick="closeLightbox(event)">&#10006;</span>
-        <div class="lightbox-content">
-            <button class="prev" onclick="prevImage()">&#10094;</button>
-            <img id="lightbox-img" src="" alt="Selected Image">
-            <button class="next" onclick="nextImage()">&#10095;</button>
-        </div>
-    </div>
-
-
-    <!-- course area End -->
-    <div class="container d-none d-sm-block">
-        <div class="row justify-content-center">
-            <div class="col-xl-8 col-lg-10 col-md-11">
-                <div class="section-title style-white text-center">
-                    <h2 class="title">Gallery</h2>
+            <div class="gallery-item" data-category="students">
+                <img src="./assets/img/convocation/2.webp"
+                    alt="Main Academic Block">
+                <div class="gallery-item-info">
+                    <h3 class="gallery-item-title"></h3>
+                    <p class="gallery-item-category"></p>
                 </div>
             </div>
-        </div>
+            <div class="gallery-item" data-category="guest">
+                <img src="./assets/img/convocation/3.webp"
+                    alt="Main Academic Block">
+                <div class="gallery-item-info">
+                    <h3 class="gallery-item-title"></h3>
+                    <p class="gallery-item-category"></p>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="guest">
+                <img src="./assets/img/convocation/4.webp"
+                    alt="Main Academic Block">
+                <div class="gallery-item-info">
+                    <h3 class="gallery-item-title"></h3>
+                    <p class="gallery-item-category"></p>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="students">
+                <img src="./assets/img/convocation/5.webp"
+                    alt="Main Academic Block">
+                <div class="gallery-item-info">
+                    <h3 class="gallery-item-title"></h3>
+                    <p class="gallery-item-category"></p>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="guest">
+                <img src="./assets/img/convocation/6.webp"
+                    alt="Main Academic Block">
+                <div class="gallery-item-info">
+                    <h3 class="gallery-item-title"></h3>
+                    <p class="gallery-item-category"></p>
+                </div>
+            </div>
+            
 
-        <!-- Gallery Section -->
-        <div class="gallery">
-            <div class="gallery-item">
-                <img src="assets/img/gallery/1.webp" alt="Image 1" onclick="openLightbox(0)">
-                <div class="caption">Image 1</div>
-            </div>
-            <div class="gallery-item">
-                <img src="assets/img/gallery/2.webp" alt="Image 2" onclick="openLightbox(1)">
-                <div class="caption">Image 2</div>
-            </div>
-            <div class="gallery-item">
-                <img src="assets/img/gallery/3.webp" alt="Image 3" onclick="openLightbox(2)">
-                <div class="caption">Image 3</div>
-            </div>
-            <div class="gallery-item">
-                <img src="assets/img/gallery/4.webp" alt="Image 4" onclick="openLightbox(3)">
-                <div class="caption">Image 4</div>
-            </div>
-            <div class="gallery-item">
-                <img src="assets/img/gallery/5.webp" alt="Image 1" onclick="openLightbox(4)">
-                <div class="caption">Image 5</div>
-            </div>
-            <div class="gallery-item">
-                <img src="assets/img/gallery/6.webp" alt="Image 2" onclick="openLightbox(5)">
-                <div class="caption">Image 6</div>
-            </div>
-            <div class="gallery-item">
-                <img src="assets/img/gallery/7.webp" alt="Image 3" onclick="openLightbox(6)">
-                <div class="caption">Image 7</div>
-            </div>
-            <div class="gallery-item">
-                <img src="assets/img/gallery/8.webp" alt="Image 4" onclick="openLightbox(7)">
-                <div class="caption">Image 8</div>
-            </div>
-            <!-- Add more images here -->
+            
         </div>
-
-        <!-- Lightbox Modal -->
-        <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
-            <span class="close-btn" onclick="closeLightbox(event)">&#10006;</span>
-            <div class="lightbox-content">
-                <button class="prev" onclick="prevImage()">&#10094;</button>
-                <img id="lightbox-img" src="" alt="Selected Image">
-                <button class="next" onclick="nextImage()">&#10095;</button>
-            </div>
-        </div>
-
     </div>
+</section>
+
+<div class="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <button class="lightbox-prev">&lt;</button>
+    <img src="" alt="Enlarged Image">
+    <div class="lightbox-caption"></div>
+    <button class="lightbox-next">&gt;</button>
+</div>
+</div>
 
 
 
