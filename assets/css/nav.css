@@ -120,6 +120,27 @@ nav {
 }
 }
 
+@media screen and (max-width: 540px) {
+  .cus-nav .logo{
+    padding:0;
+  }
+  .cus-nav{
+    display: flex;
+    justify-content: space-around;
+  }
+  .cus-nav .logo .logo-wrapper::before{
+    display: none;
+  }
+  .logo-space{
+    display: none;
+  }
+  .nav-options{
+
+  display: none;
+  }
+  }
+  
+
 
 /* Navbar shrink css */
 .shrink .logo {
