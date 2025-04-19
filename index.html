@@ -17,6 +17,11 @@
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <link rel="stylesheet" href="./assets/css/nav.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./assets/css/reel.css">
 </head>
 
 <body>
@@ -79,6 +84,8 @@
       <span class="carousel-control-next-icon"></span>
     </button>
   </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   
   
     
@@ -528,8 +535,104 @@
     <!--events-area end-->
 
 
+    <!-- ============================ Reel Showcase Section Start ============================ -->
+<section class="tmu-reel-showcase py-5 position-relative">
+    <div class="tmu-reel-background-element tmu-reel-bg-el-1"></div>
+    <div class="tmu-reel-background-element tmu-reel-bg-el-2"></div>
+
+    <div class="container position-relative">
+        <h2 class="tmu-reel-showcase__title text-center mb-5">Student Stories & Campus Life</h2>
+
+        <div class="tmu-reel-swiper-container position-relative">
+
+            <div class="swiper tmu-reel-swiper">
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide">
+                        <div class="tmu-reel-item">
+                            <iframe
+                                class="tmu-reel-video"
+                                src="https://www.instagram.com/reel/DHtGgTsJLRi/embed/"
+                                frameborder="0" scrolling="no" allowtransparency="true" allowfullscreen="true"
+                                loading="lazy" title="Instagram Reel 1">
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="tmu-reel-item">
+                            <iframe
+                                class="tmu-reel-video"
+                                src="https://www.instagram.com/reel/DHn57DfSTzI/embed/"
+                                frameborder="0" scrolling="no" allowtransparency="true" allowfullscreen="true"
+                                loading="lazy" title="Instagram Reel 2">
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="tmu-reel-item">
+                             <iframe
+                                class="tmu-reel-video"
+                                src="https://www.instagram.com/reel/DIWNWboJI-T/embed/"
+                                frameborder="0" scrolling="no" allowtransparency="true" allowfullscreen="true"
+                                loading="lazy" title="Instagram Reel 3">
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="tmu-reel-item">
+                            <iframe
+                                class="tmu-reel-video"
+                                src="https://www.instagram.com/reel/DHn57DfSTzI/embed/"
+                                frameborder="0" scrolling="no" allowtransparency="true" allowfullscreen="true"
+                                loading="lazy" title="Instagram Reel 4">
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="tmu-reel-item">
+                             <iframe
+                                class="tmu-reel-video"
+                                src="https://www.instagram.com/reel/DHtGgTsJLRi/embed/"
+                                frameborder="0" scrolling="no" allowtransparency="true" allowfullscreen="true"
+                                loading="lazy" title="Instagram Reel 5">
+                            </iframe>
+                        </div>
+                    </div>
+
+                     <div class="swiper-slide">
+                        <div class="tmu-reel-item">
+                            <iframe
+                                class="tmu-reel-video"
+                                src="https://www.instagram.com/reel/DHn57DfSTzI/embed/"
+                                frameborder="0" scrolling="no" allowtransparency="true" allowfullscreen="true"
+                                loading="lazy" title="Instagram Reel 6">
+                            </iframe>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="tmu-swiper-nav tmu-swiper-button-prev">
+                 <i class="bi bi-chevron-left"></i>
+            </div>
+            <div class="tmu-swiper-nav tmu-swiper-button-next">
+                <i class="bi bi-chevron-right"></i>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- ============================ Reel Showcase Section End ============================ -->
+
+
+
     <!-- faq area start -->
-    <div class="faq-area">
+    <div class="faq-area mt-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-5">
@@ -751,8 +854,69 @@
         crossorigin="anonymous"></script>
     <!-- all plugins here -->
     <script src="assets/js/vendor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- main js  -->
     <script src="assets/js/main.js"></script>
+
+    <script>
+
+  document.addEventListener('DOMContentLoaded', function () {
+
+const tmuReelSwiper = new Swiper('.tmu-reel-swiper', {
+    // Core parameters for larger slides
+    slidesPerView: 1.3,   // Show fewer slides initially
+    spaceBetween: 20,     // Adjust space between larger slides
+    centeredSlides: true, // Keep active slide centered
+    loop: true,           // Enable continuous looping
+    grabCursor: true,
+
+    // Responsive Breakpoints - Showing fewer slides per view
+    breakpoints: {
+        // 576px and up
+        576: {
+            slidesPerView: 1.8, // Still quite large
+            spaceBetween: 25
+        },
+        // 768px and up (Tablet)
+        768: {
+            slidesPerView: 2.5, // Maybe 2 full and parts of neighbours
+            spaceBetween: 30
+        },
+        // 992px and up (Small Desktop)
+        992: {
+            slidesPerView: 3.2, // 3 full and parts
+            spaceBetween: 35
+        },
+        // 1200px and up (Large Desktop)
+        1200: {
+            slidesPerView: 3.5, // Show even fewer for larger display
+            spaceBetween: 40
+        }
+    },
+
+    // Navigation arrows - Using the new classes
+    navigation: {
+        nextEl: '.tmu-swiper-button-next', // Target the wrapper class
+        prevEl: '.tmu-swiper-button-prev', // Target the wrapper class
+    },
+
+    // Keyboard navigation
+    keyboard: {
+        enabled: true,
+        onlyInViewport: true,
+    },
+
+    // Accessibility
+    a11y: {
+        prevSlideMessage: 'Previous reel',
+        nextSlideMessage: 'Next reel',
+    },
+});
+
+// --- Overlay interaction code removed ---
+
+}); // End DOMContentLoaded
+    </script>
 </body>
 
 </html>

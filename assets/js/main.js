@@ -479,4 +479,3 @@ const carousel = new bootstrap.Carousel('#heroCarousel', {
     ride: 'carousel'
   });
   
-

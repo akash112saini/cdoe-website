@@ -1,0 +1,259 @@
+/* ============================ Reel Showcase Section Styles V2 ============================ */
+
+/* --- Theme Colors (Ensure these match your site!) --- */
+:root {
+    --tmu-primary-blue: #001055;
+    --tmu-accent-orange: #f39c12;
+    --tmu-light-bg: #f8f9fa;
+    --tmu-white: #ffffff;
+    --tmu-text-dark: #333333;
+    --tmu-text-light: #f1f1f1;
+    --tmu-subtle-gray: #e9ecef;
+}
+
+.tmu-reel-showcase {
+    /* Use a light background or keep your texture */
+    background-color: var(--tmu-light-bg);
+    /* background-image: url('/path/to/your/texture.png'); */
+    position: relative; /* Needed for absolute positioned pseudo-elements */
+    overflow: hidden;   /* Hide parts of background elements bleeding off */
+}
+
+/* --- Subtle Background Elements --- */
+.tmu-reel-background-element {
+    position: absolute;
+    z-index: 0; /* Behind content */
+    border-radius: 30px;
+    opacity: 0.08; /* Very subtle */
+    background-color: var(--tmu-accent-orange); /* Use accent or primary color */
+}
+
+.tmu-reel-bg-el-1 {
+    width: 25vw; /* Relative size */
+    height: 25vw;
+    bottom: -10vw; /* Position partially off-screen */
+    left: -10vw;
+    transform: rotate(30deg);
+}
+
+.tmu-reel-bg-el-2 {
+    width: 30vw;
+    height: 30vw;
+    top: -12vw;
+    right: -15vw;
+    transform: rotate(-20deg);
+    background-color: var(--tmu-primary-blue); /* Different color */
+    opacity: 0.2;
+}
+
+.tmu-reel-showcase .container {
+    position: relative; /* Ensure container content is above background elements */
+    z-index: 1;
+}
+
+.tmu-reel-showcase__title {
+    color: var(--tmu-primary-blue);
+    font-weight: 700;
+    /* font-family: 'Your Heading Font', sans-serif; */
+}
+
+/* --- Swiper Container & Wrapper --- */
+.tmu-reel-swiper-container {
+    /* background: #eee; */ /* uncomment for debugging layout */
+}
+
+.tmu-reel-swiper {
+    /* Remove padding, buttons are now outside */
+    padding-left: 0;
+    padding-right: 0;
+    /* Add vertical padding if needed for spacing */
+    /* padding-top: 20px; */
+    /* padding-bottom: 20px; */
+}
+
+/* --- Individual Reel Slide & Item --- */
+.swiper-slide {
+    /* Remove opacity/scale effects for a bolder look */
+    /* opacity: 1; */
+    /* transform: scale(1); */
+    /* Add back subtle effects if desired */
+     transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+     opacity: 0.7;
+     transform: scale(0.9);
+     box-sizing: border-box; /* Important for layout calculations */
+}
+
+.swiper-slide-active {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 2; /* Ensure active slide is slightly above neighbours if overlapping */
+}
+/* Optional: slightly enhance visible neighbours */
+.swiper-slide-next,
+.swiper-slide-prev {
+     opacity: 0.8;
+     transform: scale(0.95);
+}
+
+
+.tmu-reel-item {
+    position: relative;
+    width: 100%;
+    /* Maintain aspect ratio for reels */
+    aspect-ratio: 9 / 16;
+    background-color: var(--tmu-subtle-gray); /* Placeholder bg */
+    border-radius: 6px; /* Slightly larger rounding */
+    overflow: hidden; /* CRITICAL: Clip the iframe content */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* No hover effects needed if overlay is gone, iframe handles interaction */
+}
+
+.tmu-reel-video { /* Applies to iframe */
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none; /* Remove iframe border */
+}
+
+/* --- Redesigned Navigation Buttons --- */
+.tmu-swiper-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10; /* Above slides */
+    width: 50px;  /* Button size */
+    height: 50px; /* Button size */
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: var(--tmu-primary-blue); /* Arrow color */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.tmu-swiper-nav:hover {
+    background-color: var(--tmu-primary-blue); /* Dark blue on hover */
+    color: var(--tmu-white); /* White arrow on hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-50%) scale(1.05); /* Slight scale effect */
+}
+
+.tmu-swiper-nav i { /* Target the icon inside */
+    font-size: 1.5rem; /* Adjust icon size */
+    line-height: 1; /* Prevent extra space */
+}
+
+.tmu-swiper-button-prev {
+    left: -25px; /* Position partially outside the container edge */
+}
+
+.tmu-swiper-button-next {
+    right: -25px; /* Position partially outside the container edge */
+}
+
+/* Disabled state */
+.swiper-button-disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none; /* Prevent clicks */
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+    .tmu-reel-item {
+        border-radius: 12px;
+    }
+    .tmu-swiper-nav {
+        width: 45px;
+        height: 45px;
+    }
+    .tmu-swiper-nav i {
+        font-size: 1.3rem;
+    }
+    .tmu-swiper-button-prev {
+        left: -20px;
+    }
+    .tmu-swiper-button-next {
+        right: -20px;
+    }
+
+     /* Hide background elements if they become too cluttering */
+     .tmu-reel-background-element {
+        opacity: 0.05;
+        width: 35vw;
+        height: 35vw;
+     }
+     .tmu-reel-bg-el-1 { left: -15vw; bottom: -15vw; }
+     .tmu-reel-bg-el-2 { right: -20vw; top: -18vw; }
+}
+
+@media (max-width: 768px) {
+    .tmu-reel-showcase__title {
+        font-size: 1.8rem; /* Adjust heading size */
+        margin-bottom: 2rem !important; /* More space before larger reels */
+    }
+    .tmu-swiper-nav {
+        width: 40px;
+        height: 40px;
+    }
+     .tmu-swiper-nav i {
+        font-size: 1.1rem;
+    }
+    .tmu-swiper-button-prev {
+        left: -15px;
+    }
+    .tmu-swiper-button-next {
+        right: -15px;
+    }
+     /* Further adjust or hide background elements */
+     .tmu-reel-background-element {
+        opacity: 0.04;
+        width: 40vw;
+        height: 40vw;
+     }
+     .tmu-reel-bg-el-1 { left: -20vw; bottom: -20vw; }
+     .tmu-reel-bg-el-2 { display: none; } /* Hide one on smaller screens */
+
+    .swiper-slide { /* Less aggressive scaling on mobile */
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
+    .swiper-slide-active {
+        transform: scale(1);
+        opacity: 1;
+    }
+     .swiper-slide-next,
+     .swiper-slide-prev {
+        transform: scale(0.95);
+         opacity: 0.85;
+    }
+}
+
+@media (max-width: 576px) {
+     .tmu-reel-item {
+        border-radius: 10px;
+    }
+     .tmu-swiper-nav {
+        width: 35px;
+        height: 35px;
+         /* Bring buttons closer on very small screens */
+         /* left: -5px; */ /* Alternative placement */
+         /* right: -5px; */
+         /* background-color: rgba(0, 0, 0, 0.4); */ /* Darker bg if on edge */
+         /* color: white; */
+    }
+     .tmu-swiper-nav i {
+        font-size: 1rem;
+    }
+    .tmu-swiper-button-prev {
+        left: -10px;
+    }
+    .tmu-swiper-button-next {
+        right: -10px;
+    }
+}
