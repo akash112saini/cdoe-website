@@ -37,22 +37,173 @@
     </div>
     <!-- preloader area end -->
 
-    <!-- navbar  -->
-    <nav class="cus-nav">
-        <div class="logo">
-            <div class="logo-wrapper">
-          <img src="./logo.png" alt="">
-        </div>
-        </div>
-        <div class="logo-space"></div>
-        <div class="nav-options">
-            <a href="#">Blogs</a>
-        <a href="#">Programme</a>
-        <a href="#">Apply Now</a>
-        </div>
-      </nav>
+   <!-- navbar  -->
+<nav class="cus-nav d-none d-lg-flex">
+    <div class="logo">
+      <div class="logo-wrapper">
+        <img src="./logo.png" alt="">
+      </div>
+    </div>
+    <div class="logo-space"></div>
+    <div class="nav-options">
+      <a href="#">Home</a>
+  
+      <div class="dropdown">
+        <a href="#">Programmes</a>
+        <ul class="submenu">
+          <li><a href="/mba-finance">MBA Finance</a></li>
+          <li><a href="/mba-hr">MBA HR Management</a></li>
+          <li><a href="/mba-marketing">MBA Marketing</a></li>
+        </ul>
+      </div>
+  
+      <div class="dropdown">
+        <a href="#">Admissions</a>
+        <ul class="submenu">
+          <li><a href="/admission-rules">Admission Rules</a></li>
+          <li><a href="/how-to-apply">How to Apply</a></li>
+        </ul>
+      </div>
+  
+      <a href="#">Facilities</a>
+      <a href="#" class="apply-btn">Apply Now</a>
+    </div>
+  </nav>
+  
+
+      <!-- Mobile Navbar Container - Add this to your HTML body -->
+<nav class="flourish-navbar-container" id="flourishNavbar">
+    <div class="flourish-navbar-visible-area">
+        <!-- Logo -->
+        <a href="/" class="flourish-navbar-logo"> <!-- Changed href to "/" for homepage -->
+            <img src="./logo.png" alt="Logo" class="logo"> <!-- Ensure alt text -->
+        </a>
+
+        <!-- Toggle Button -->
+        <button class="flourish-navbar-toggle-btn" id="flourishNavbarToggle" aria-label="Toggle Menu"
+            aria-expanded="false" aria-controls="flourishNavbarMenu">
+            <span class="icon-bar top-bar"></span>
+            <span class="icon-bar middle-bar"></span>
+            <span class="icon-bar bottom-bar"></span>
+        </button>
+    </div>
+
+    <!-- Expandable Menu Content -->
+    <div class="flourish-navbar-menu-content" id="flourishNavbarMenu">
+        <ul class="flourish-main-nav-list">
+            <li><a href="/">Home</a></li>
+
+            <li class="flourish-nav-item-has-submenu">
+                <button type="button" class="flourish-submenu-toggle">
+                    Programmes <span class="submenu-arrow">▸</span>
+                </button>
+                <ul class="flourish-submenu">
+                    <li><a href="/mba-finance" class="submenu-tag">MBA Finance</a></li>
+                    <li><a href="/mba-hr" class="submenu-tag">MBA HR Management</a></li>
+                    <li><a href="/mba-marketing" class="submenu-tag">MBA Marketing</a></li>
+                </ul>
+            </li>
+
+            <li class="flourish-nav-item-has-submenu">
+                <button type="button" class="flourish-submenu-toggle">
+                    Admissions <span class="submenu-arrow">▸</span>
+                </button>
+                <ul class="flourish-submenu">
+                    <li><a href="/admission-rules" class="submenu-tag">Admission Rules</a></li>
+                    <li><a href="/how-to-apply" class="submenu-tag">How to Apply</a></li>
+                </ul>
+            </li>
+
+            <li><a href="/facilities">Facilities</a></li>
+            <li><a href="/apply-now">Apply Now</a></li>
+        </ul>
+    </div>
+    <!-- End of Expandable Menu Content -->
+</nav>
+<!-- End Mobile Navbar Container -->
 
 
+
+<script>
+    // --- Flourish Mobile Navbar Script ---
+    document.addEventListener('DOMContentLoaded', () => {
+        const navbar = document.getElementById('flourishNavbar');
+        const toggleButton = document.getElementById('flourishNavbarToggle');
+        const menuContent = document.getElementById('flourishNavbarMenu');
+
+        // Check if mobile navbar elements exist before adding listeners
+        if (navbar && toggleButton && menuContent) {
+
+            const submenuToggles = navbar.querySelectorAll('.flourish-submenu-toggle');
+
+            submenuToggles.forEach(toggle => {
+                toggle.addEventListener('click', (event) => {
+                    event.stopPropagation(); // Prevent click from closing the main menu
+
+                    const parentLi = toggle.closest('.flourish-nav-item-has-submenu');
+
+                    if (parentLi) {
+                        const currentlyOpen = parentLi.classList.contains('submenu-is-open');
+                         // Close all others *before* opening the new one
+                        closeOtherSubmenus(parentLi);
+                        // Toggle the current one (if it wasn't the one already open, it will open)
+                        if (!currentlyOpen) {
+                             parentLi.classList.add('submenu-is-open');
+                        }
+                    }
+                });
+            });
+
+            // Helper function to close other submenus
+            function closeOtherSubmenus(currentOpenLi) {
+                submenuToggles.forEach(toggle => {
+                    const li = toggle.closest('.flourish-nav-item-has-submenu');
+                    // Close if it's not the current one OR if the current one is being clicked to close
+                    if (li !== currentOpenLi || li.classList.contains('submenu-is-open')) {
+                         li.classList.remove('submenu-is-open');
+                    }
+                });
+            }
+
+            // Main Toggle Logic
+            toggleButton.addEventListener('click', (event) => {
+                event.stopPropagation(); // Prevent triggering document click listener
+                const isOpen = navbar.classList.toggle('is-open');
+                toggleButton.setAttribute('aria-expanded', isOpen);
+
+                // If closing the main menu, also close all submenus
+                if (!isOpen) {
+                   closeAllSubmenus();
+                }
+            });
+
+            // Outside Click Logic
+            document.addEventListener('click', (event) => {
+                // Check if the main navbar is open and the click was outside the navbar
+                if (navbar.classList.contains('is-open') && !navbar.contains(event.target)) {
+                    closeMainMenu();
+                }
+            });
+
+            // Function to close main menu and submenus
+            function closeMainMenu() {
+                 navbar.classList.remove('is-open');
+                 toggleButton.setAttribute('aria-expanded', 'false');
+                 closeAllSubmenus();
+            }
+
+             // Function to close all submenus
+            function closeAllSubmenus() {
+                 navbar.querySelectorAll('.flourish-nav-item-has-submenu.submenu-is-open').forEach(li => {
+                        li.classList.remove('submenu-is-open');
+                 });
+            }
+
+        }
+         // No console error if elements aren't found, as they might intentionally be absent on desktop
+    });
+    // --- End Flourish Mobile Navbar Script ---
+</script>
 <!-- Hero Carousel -->
 <div id="heroCarousel" class="carousel slide carousel-fade carousel-dark" data-bs-ride="carousel">
     <div class="carousel-indicators">
