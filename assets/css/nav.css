@@ -75,7 +75,7 @@ nav a:hover {
 }
 
 .apply-btn {
-  background-color: #ff6600;
+  background-color: #ff6600 !important;
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 25px;
@@ -84,7 +84,8 @@ nav a:hover {
 }
 
 .apply-btn:hover {
-  background-color: #e65c00;
+  background-color: #e65c00 !important;
+  color:white !important;
 }
 
 .call-btn {
