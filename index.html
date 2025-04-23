@@ -123,87 +123,6 @@
 <!-- End Mobile Navbar Container -->
 
 
-
-<script>
-    // --- Flourish Mobile Navbar Script ---
-    document.addEventListener('DOMContentLoaded', () => {
-        const navbar = document.getElementById('flourishNavbar');
-        const toggleButton = document.getElementById('flourishNavbarToggle');
-        const menuContent = document.getElementById('flourishNavbarMenu');
-
-        // Check if mobile navbar elements exist before adding listeners
-        if (navbar && toggleButton && menuContent) {
-
-            const submenuToggles = navbar.querySelectorAll('.flourish-submenu-toggle');
-
-            submenuToggles.forEach(toggle => {
-                toggle.addEventListener('click', (event) => {
-                    event.stopPropagation(); // Prevent click from closing the main menu
-
-                    const parentLi = toggle.closest('.flourish-nav-item-has-submenu');
-
-                    if (parentLi) {
-                        const currentlyOpen = parentLi.classList.contains('submenu-is-open');
-                         // Close all others *before* opening the new one
-                        closeOtherSubmenus(parentLi);
-                        // Toggle the current one (if it wasn't the one already open, it will open)
-                        if (!currentlyOpen) {
-                             parentLi.classList.add('submenu-is-open');
-                        }
-                    }
-                });
-            });
-
-            // Helper function to close other submenus
-            function closeOtherSubmenus(currentOpenLi) {
-                submenuToggles.forEach(toggle => {
-                    const li = toggle.closest('.flourish-nav-item-has-submenu');
-                    // Close if it's not the current one OR if the current one is being clicked to close
-                    if (li !== currentOpenLi || li.classList.contains('submenu-is-open')) {
-                         li.classList.remove('submenu-is-open');
-                    }
-                });
-            }
-
-            // Main Toggle Logic
-            toggleButton.addEventListener('click', (event) => {
-                event.stopPropagation(); // Prevent triggering document click listener
-                const isOpen = navbar.classList.toggle('is-open');
-                toggleButton.setAttribute('aria-expanded', isOpen);
-
-                // If closing the main menu, also close all submenus
-                if (!isOpen) {
-                   closeAllSubmenus();
-                }
-            });
-
-            // Outside Click Logic
-            document.addEventListener('click', (event) => {
-                // Check if the main navbar is open and the click was outside the navbar
-                if (navbar.classList.contains('is-open') && !navbar.contains(event.target)) {
-                    closeMainMenu();
-                }
-            });
-
-            // Function to close main menu and submenus
-            function closeMainMenu() {
-                 navbar.classList.remove('is-open');
-                 toggleButton.setAttribute('aria-expanded', 'false');
-                 closeAllSubmenus();
-            }
-
-             // Function to close all submenus
-            function closeAllSubmenus() {
-                 navbar.querySelectorAll('.flourish-nav-item-has-submenu.submenu-is-open').forEach(li => {
-                        li.classList.remove('submenu-is-open');
-                 });
-            }
-
-        }
-         // No console error if elements aren't found, as they might intentionally be absent on desktop
-    });
-    // --- End Flourish Mobile Navbar Script ---
-</script>
 <!-- Hero Carousel -->
 <div id="heroCarousel" class="carousel slide carousel-fade carousel-dark" data-bs-ride="carousel">
     <div class="carousel-indicators">
@@ -213,19 +132,9 @@
     </div>
   
     <div class="carousel-inner">
-  
-      <div class="carousel-item active" style="background-image: url('./assets/img/banner21.jpg');">
-        
-      </div>
-  
-      <div class="carousel-item" style="background-image: url('./assets/img/banner22.jpg');">
-       
-      </div>
-  
-      <div class="carousel-item" style="background-image: url('./assets/img/banner24.jpg');">
-        
-      </div>
-  
+      <div class="carousel-item active"></div>
+      <div class="carousel-item"></div>
+      <div class="carousel-item"></div>
     </div>
   
     <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">

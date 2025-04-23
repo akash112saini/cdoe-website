@@ -947,3 +947,27 @@ nav.shrink {
       width: 95%;
   }
 }
+
+#heroCarousel .carousel-inner .carousel-item:nth-child(1){
+  background-image: url('../img/banner24.jpg');
+}
+
+#heroCarousel .carousel-inner .carousel-item:nth-child(2){
+  background-image: url('../img/banner22.jpg');
+}
+
+#heroCarousel .carousel-inner .carousel-item:nth-child(3){
+  background-image: url('../img/desktop-banner1.jpg');
+}
+
+@media screen and (max-width:992px) {
+  #heroCarousel .carousel-inner .carousel-item:nth-child(1){
+    background-image: url('../img/tab-banner1.jpg');
+  }
+}
+
+@media screen and (max-width:540px) {
+  #heroCarousel .carousel-inner .carousel-item:nth-child(1){
+    background-image: url('../img/mobile-banner1.jpg');
+  }
+}
