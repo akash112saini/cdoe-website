@@ -4777,7 +4777,7 @@ ul {
 .footer-area .widget_about {
   background: #fff;
   padding: 40px 20px;
-  border-top: 6px solid var(--main-color);
+  border-top: 6px solid #002147;
   margin-top: -150px;
 }
 
@@ -4921,6 +4921,13 @@ ul {
   background: var(--main-color);
   border-top: 0;
 }
+.footer-bottom{
+  background: #002147 !important;
+  color: white !important;
+}
+.footer-bottom *{
+  color:white !important;
+}
 
 .footer-area-2 .footer-bottom p {
   color: var(--heading-color);
@@ -4985,41 +4992,6 @@ ul {
   bottom: 0; /* Move the caption into view */
 }
 
-/* Lightbox Styles */
-.lightbox {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  cursor: pointer;
-}
-
-.lightbox-content {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.lightbox-content img {
-  max-width: 90%;
-  max-height: 80vh;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  transition: opacity 0.01s ease-in-out;  /* Adding fade transition */
-  opacity: 0;
-}
-
-/* Image fade-in effect when transitioning */
-.lightbox-content img.show {
-  opacity: 1;
-}
 
 .prev, .next {
   position: fixed;
