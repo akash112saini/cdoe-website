@@ -4937,7 +4937,7 @@ ul {
 /* Gallery Grid css start */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 15px;
   padding: 20px;
   max-width: 1200px;
@@ -4957,6 +4957,7 @@ ul {
   height: auto;
   display: block;
   transition: transform 0.3s ease;
+  filter: brightness(1); /* Normal brightness */
 }
 
 .gallery-item:hover {
@@ -4965,6 +4966,7 @@ ul {
 
 .gallery-item img:hover {
   transform: scale(1.1);
+  filter: brightness(0.5); /* Darken the image on hover */
 }
 
 /* Add text caption */
@@ -4976,7 +4978,6 @@ ul {
   text-align: center;
   color: white;
   font-size: 1.2rem;
-  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
   padding: 10px;
   transition: bottom 0.3s ease; /* Smooth transition for the hover effect */
 }
@@ -5000,6 +5001,11 @@ ul {
   cursor: pointer;
 }
 
+/* Prevent page scroll when lightbox is open */
+body {
+  overflow: hidden;
+}
+
 .lightbox-content {
   position: relative;
   display: flex;
@@ -5014,11 +5020,26 @@ ul {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   transition: opacity 0.01s ease-in-out;  /* Adding fade transition */
   opacity: 0;
+  border: 2px solid white;  /* White border around image */
 }
 
 /* Image fade-in effect when transitioning */
 .lightbox-content img.show {
   opacity: 1;
+}
+
+/* Image Caption in the lightbox */
+.lightbox-caption {
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  color: white;
+  font-size: 1rem;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  padding: 5px 10px;
+  border-radius: 5px;
+  max-width: 250px;
+  text-align: right;
 }
 
 .prev, .next {
@@ -5055,34 +5076,13 @@ ul {
   z-index: 10;
 }
 
-
 /* Mobile-specific styles */
-@media (max-width: 767px) {
+@media (max-width: 582px) {
   .gallery {
-      display: none;  /* Hide grid layout */
-  }
-
-  .owl-carousel {
-      display: block;  /* Show carousel */
-  }
-
-  .owl-carousel .gallery-item {
-      display: block;  /* Ensure images are visible in the carousel */
+    grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+    gap: 7px;
   }
 }
-
-/* Desktop View Styles */
-@media (min-width: 768px) {
-  .owl-carousel {
-      display: none;  /* Hide carousel on desktop */
-  }
-
-  .gallery {
-      display: grid;  /* Use grid layout */
-  }
-}
-
-
 /* Gallery Grid css end */
 
 .why-icon{
@@ -5235,4 +5235,106 @@ ul {
   max-width: 100%;
   padding: 0 15px;
   margin: 0 auto;
+}
+
+/* recruters section css start */
+
+.recruiter-section {
+  background: #f9fafb;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.recruiter-section h2 {
+  font-size: 24px;
+  margin-bottom: 24px;
+}
+
+.semi-circle-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: 280px;
+  margin: 0 auto 16px;
+}
+
+/* filled background semi-circle */
+.semi-circle-container::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 250px;
+  background: rgba(255, 255, 255, 0.027);
+  border-radius: 250px 250px 0 0;
+  pointer-events: none;
+}
+
+/* outline arc behind logos */
+.semi-circle-container::before {
+  content: "";
+  position: absolute;
+  bottom: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 400px;
+  border: 5px solid #ff000065;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  border-radius: 250px 250px 0 0;
+  pointer-events: none;
+}
+
+.semi-circle-logo {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  opacity: 1;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background-color: #fff;
+  transition: left 0.5s ease, top 0.5s ease, opacity 0.3s ease;
+}
+
+.controls {
+  margin-top: 12px;
+}
+
+.controls button {
+  margin: 0 8px;
+  padding: 8px 16px;
+  border: none;
+  background: #1d4ed8;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.controls button:hover {
+  background: #2563eb;
+}
+
+@media (max-width: 600px) {
+  .semi-circle-container {
+    height: 200px;
+  }
+  .semi-circle-container::after {
+    width: 400px;
+    height: 200px;
+    border-radius: 200px 200px 0 0;
+  }
+  .semi-circle-container::before {
+    width: 400px;
+    height: 400px;
+    bottom: -200px;
+    border-radius: 200px 200px 0 0;
+  }
 }

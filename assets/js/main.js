@@ -389,6 +389,16 @@ const images = [
     "assets/img/gallery/6.webp",
     "assets/img/gallery/7.webp",
     "assets/img/gallery/8.webp",
+    "assets/img/gallery/9.webp",
+    "assets/img/gallery/10.webp",
+    "assets/img/gallery/11.webp",
+    "assets/img/gallery/12.webp",
+    "assets/img/gallery/13.webp",
+    "assets/img/gallery/14.webp",
+    "assets/img/gallery/15.webp",
+    "assets/img/gallery/16.webp",
+    "assets/img/gallery/17.webp",
+    "assets/img/gallery/18.webp",
     // Add more image paths here
 ];
 
@@ -408,6 +418,9 @@ function openLightbox(index) {
         lightboxImg.classList.add('show');  // Add the show class to fade in
     }, 200);  // Wait for 0.2 sec before changing the image (matching the CSS transition duration)
     
+    // Update the caption in lightbox
+    document.getElementById("lightbox-caption").innerText = document.querySelectorAll('.gallery-item')[currentImageIndex].querySelector('.caption').innerText;
+    
     document.getElementById("lightbox").style.display = "flex";
 }
 
@@ -415,6 +428,7 @@ function openLightbox(index) {
 function closeLightbox(event) {
     if (event.target === document.getElementById("lightbox") || event.target === document.querySelector('.close-btn')) {
         document.getElementById("lightbox").style.display = "none";
+        document.body.style.overflow = "auto";  // Re-enable page scrolling when lightbox is closed
     }
 }
 
@@ -432,6 +446,8 @@ function nextImage() {
         lightboxImg.classList.add('show');  // Add the show class to fade in
     }, 200);  // Wait for 0.2 sec before changing the image
     
+    // Update the caption in lightbox
+    document.getElementById("lightbox-caption").innerText = document.querySelectorAll('.gallery-item')[currentImageIndex].querySelector('.caption').innerText;
 }
 
 // Show the previous image in the gallery
@@ -447,4 +463,84 @@ function prevImage() {
         lightboxImg.src = images[currentImageIndex];
         lightboxImg.classList.add('show');  // Add the show class to fade in
     }, 200);  // Wait for 0.2 sec before changing the image
+    
+    // Update the caption in lightbox
+    document.getElementById("lightbox-caption").innerText = document.querySelectorAll('.gallery-item')[currentImageIndex].querySelector('.caption').innerText;
 }
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const logos = [
+      'assets/img/logos/1.jpg','assets/img/logos/2.jpg','assets/img/logos/3.jpg','assets/img/logos/4.jpg','assets/img/logos/5.jpg',
+      'assets/img/logos/6.jpg','assets/img/logos/7.jpg','assets/img/logos/8.jpg','assets/img/logos/1.jpg',
+      'assets/img/logos/2.jpg','assets/img/logos/3.jpg'
+    ];
+    const itemsPerPage = 5;
+    let currentStart = 0;
+    const container = document.getElementById('logo-container');
+    const radius = 250; // px
+
+    // pre-create img elements
+    const imgElements = [];
+    for (let i = 0; i < itemsPerPage; i++) {
+      const img = document.createElement('img');
+      img.className = 'semi-circle-logo';
+      container.appendChild(img);
+      imgElements.push(img);
+    }
+
+    // position logos along the semi-circle
+    function positionImgs() {
+      imgElements.forEach((img, i) => {
+        const idx = (currentStart + i) % logos.length;
+        img.src = logos[idx];
+        img.alt = `logo ${idx + 1}`;
+
+        const angle = Math.PI * (i / (itemsPerPage - 1)); // 0→π
+        const x = radius * Math.cos(angle);
+        const y = radius * Math.sin(angle);
+
+        img.style.left = `calc(50% + ${x}px - 32px)`;
+        img.style.top  = `calc(100% - ${y}px - 32px)`;
+      });
+    }
+
+    function rotateNext() {
+      imgElements.forEach(img => img.style.opacity = '0');
+      setTimeout(() => {
+        currentStart = (currentStart + 1) % logos.length;
+        const first = imgElements.shift();
+        imgElements.push(first);
+        positionImgs();
+        container.innerHTML = '';
+        imgElements.forEach(el => container.appendChild(el));
+        imgElements.forEach(img => img.style.opacity = '1');
+      }, 300);
+    }
+
+    function rotatePrev() {
+      imgElements.forEach(img => img.style.opacity = '0');
+      setTimeout(() => {
+        currentStart = (currentStart - 1 + logos.length) % logos.length;
+        const last = imgElements.pop();
+        imgElements.unshift(last);
+        positionImgs();
+        container.innerHTML = '';
+        imgElements.forEach(el => container.appendChild(el));
+        imgElements.forEach(img => img.style.opacity = '1');
+      }, 300);
+    }
+
+    document.getElementById('next').addEventListener('click', rotateNext);
+    document.getElementById('prev').addEventListener('click', rotatePrev);
+
+    // auto-rotate every 3s, pause on hover
+    let autoRotate = setInterval(rotateNext, 3000);
+    container.addEventListener('mouseenter', () => clearInterval(autoRotate));
+    container.addEventListener('mouseleave', () => {
+      autoRotate = setInterval(rotateNext, 3000);
+    });
+
+    positionImgs();
+  });

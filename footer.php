@@ -23,9 +23,10 @@
                         <div class="widget widget_contact">
                             <h4 class="widget-title">Contact Us</h4>
                             <ul class="details">
-                                <li><i class="fa fa-map-marker"></i> 420 Love Sreet 133/2 Street NewYork</li>
-                                <li><i class="fa fa-envelope"></i> info.contact@gmail.com</li>
-                                <li><i class="fa fa-phone"></i> 012 345 678 9101</li>
+                                <li><i class="fa fa-map-marker"></i> N.H.-9, Delhi Road, Moradabad - 244001,
+                                Uttar Pradesh</li>
+                                <li><i class="fa fa-envelope"></i> admissions@tmu.ac.in</li>
+                                <li><i class="fa fa-phone"></i> 1800-270-1490</li>
                             </ul>
                         </div>
                     </div>
