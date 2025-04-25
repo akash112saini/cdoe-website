@@ -54,7 +54,9 @@ Version: 1.0.3
   --body-font-size: 16px;
   --line-height30: 1.7;
 }
-
+.bg-light-blue{
+  background-color: #F0F4F8;
+}
 .home-3 {
   --main-color: #1DC295;
 }
@@ -998,13 +1000,6 @@ ul {
   border-radius: 50%;
   font-size: 14px;
   display: inline-block;
-  border: 1px solid #CFCFCF;
-}
-
-.social-media li a:hover {
-  background: var(--main-color);
-  border: 1px solid var(--main-color);
-  color: var(--heading-color);
 }
 
 .social-media li:first-child {
@@ -1013,6 +1008,12 @@ ul {
 
 .social-media li:last-child {
   margin-right: 0;
+}
+.social-media li img{
+  width: 85%;
+}
+.social-media li img:hover {
+  filter: grayscale(100%);
 }
 
 /********* slider-control *********/
@@ -4777,7 +4778,7 @@ ul {
 .footer-area .widget_about {
   background: #fff;
   padding: 40px 20px;
-  border-top: 6px solid var(--main-color);
+  border-top: 6px solid #002147;
   margin-top: -150px;
 }
 
@@ -4921,6 +4922,13 @@ ul {
   background: var(--main-color);
   border-top: 0;
 }
+.footer-bottom{
+  background: #002147 !important;
+  color: white !important;
+}
+.footer-bottom *{
+  color:white !important;
+}
 
 .footer-area-2 .footer-bottom p {
   color: var(--heading-color);
@@ -4986,6 +4994,7 @@ ul {
   bottom: 0; /* Move the caption into view */
 }
 
+
 /* Lightbox Styles */
 .lightbox {
   position: fixed;
@@ -5027,6 +5036,7 @@ body {
 .lightbox-content img.show {
   opacity: 1;
 }
+
 
 /* Image Caption in the lightbox */
 .lightbox-caption {

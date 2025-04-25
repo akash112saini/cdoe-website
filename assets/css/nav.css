@@ -1,125 +1,853 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
 
-  body {
-    font-family: 'Inter', sans-serif;
-    min-height: 100vh;
-  }
 
-  .banner-section{
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-      background-image: url('../img/banner.jpg');
-      background-size: cover;
-      background-repeat: no-repeat;
-  }
+.banner-section{
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../img/banner.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
+nav {
+  background: #f9f9f9;
+  position: fixed;
+  left: 50%;
+  z-index: 99;
+  transform: translateX(-50%);
+  padding: 1.5rem 2rem;
+  margin: 1.5rem auto;
+  border-radius: 20px;
+  width: 80vw;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.2));
+}
+
+.cus-nav .logo {
+  position: absolute;
+  transform: translateY(25%);
+  left: 0;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-color: #f9f9f9;
+  transition: all 0.6s ease;
+}
+
+.logo img {
+  max-width: 220px;
+  transition: all 0.6s ease;
+}
+
+.logo .logo-wrapper {
+  position: relative;
+}
+
+.logo .logo-wrapper::before {
+  content: '';
+  position: absolute;
+  width: 149px;
+  height: 60px;
+  background-color: #f9f9f9;
+  bottom: 2.12rem;
+  right: -9.7rem;
+  transform: rotate(-31deg);
+  transition: all 0.6s ease;
+}
+
+.logo-space {
+  min-width: 240px;
+  transition: all 0.6s ease;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.1rem;
+  transition: 0.3s ease;
+}
+
+nav a:hover {
+  color: #ff6600;
+}
+
+.apply-btn {
+  background-color: #ff6600 !important;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.apply-btn:hover {
+  background-color: #e65c00 !important;
+  color:white !important;
+}
+
+.call-btn {
+  background-color: #0c1e4b;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.nav-options {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-left: -120px;
+  align-items: center;
+  font-size: 1.4rem;
+  position: relative;
+}
+
+.nav-options a {
+  background-color: #f9f9f9;
+  z-index: 99;
+}
+
+/* Dropdown setup */
+.dropdown {
+  position: relative;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  border-radius: 8px;
+  padding: 0.5rem 0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+  z-index: 1000;
+}
+
+.submenu li {
+  list-style: none;
+}
+
+.submenu li a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #333;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.submenu li a:hover {
+  background: #f2f2f2;
+  color: #ff6600;
+}
+
+/* Show submenu on hover */
+.dropdown:hover .submenu {
+  display: block;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
   nav {
-    background: #f9f9f9;
-    position: fixed;
-    left:50%;
-    transform: translateX(-50%);
-    padding: 1.5rem 2rem;
-    margin: 1.5rem auto;
-    border-radius: 20px;
-    width: 80vw;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .cus-nav .logo {
+    padding: 0;
+  }
+
+  .cus-nav {
     display: flex;
+    justify-content: space-around;
+  }
+
+  .cus-nav .logo .logo-wrapper::before {
+    display: none;
+  }
+
+  .logo-space {
+    display: none;
+  }
+
+  .nav-options {
+    display: none;
+  }
+}
+
+/* Navbar shrink CSS */
+.shrink .logo {
+  position: static;
+  transform: translateY(0%);
+  left: 0;
+}
+
+.shrink .logo img {
+  max-width: 120px;
+}
+
+.shrink .logo .logo-wrapper::before {
+  transform: rotate(0deg);
+  bottom: 0;
+}
+
+nav.shrink {
+  padding: 0.5rem 1rem;
+}
+
+.shrink .logo-space {
+  min-width: 0;
+}
+
+
+/* Banner section css */
+
+  .carousel-item {
+    height: 100vh;
+    min-height: 500px;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    transition: opacity 1s ease-in-out; /* smooth fade */
+  }
+
+  .carousel-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    text-align: center;
+    color: #fff;
+  }
+
+  .carousel-caption h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .carousel-caption p {
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: auto;
+  }
+
+  .carousel-dark .carousel-indicators [data-bs-target] {
+    background-color: #000;
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 45px;
+    height: 45px;
+    background-color: #FF7900;
+    border: none;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 1;
+    transition: background-color 0.3s ease;
+    z-index: 5;
+  }
+
+  .carousel-control-prev:hover,
+  .carousel-control-next:hover {
+    background-color: #e96e00;
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-size: 60% 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: brightness(0) invert(1);
+  }
+
+  .carousel-control-prev {
+    left: 20px;
+  }
+
+  .carousel-control-next {
+    right: 20px;
+  }
+
+  .carousel-inner {
+    display: flex;
+    height: 100vh;
     align-items: center;
-    gap: 2rem;
-    /* box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05); */
-    filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.05));
+  }
+  .carousel-item {
+    flex: 1 0 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 1s ease-in-out;
+  }
+/* Ensure full height and smooth transitions */
+.carousel,
+.carousel-inner,
+.carousel-item {
+  height: 100vh;
+  width: 100%;
+  transition: transform 0.8s ease-in-out;
+}
+
+.carousel-item {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+}
+
+/* Smooth fade effect (optional) */
+.carousel-fade .carousel-item {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+.carousel-fade .carousel-item.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Controls fix */
+.carousel-control-prev,
+.carousel-control-next {
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #ef7720;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  opacity: 0.8;
+}
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  opacity: 1;
+}
+
+/* Indicator styles */
+.carousel-indicators {
+  bottom: 20px;
+}
+.carousel-indicators [data-bs-target] {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 2px solid #ef7720;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+.carousel-indicators button {
+  margin-right: 5px;
+}
+.carousel-indicators .active {
+  background-color: #ef7720;
+  opacity: 1;
+}
+  
+
+/* Degree section css */
+  .degree-showcase {
+    background: #f9f9f9;
+    font-family: 'Segoe UI', sans-serif;
+    color: #1c1c1c;
+    position: relative;
+    z-index: 1;
   }
 
-  .logo {
+  .degree-showcase::before {
+    content: "";
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background-image: url('logo.png'); /* Optional watermark */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 40%;
+    opacity: 0.03;
+    z-index: 0;
+  }
+
+  .degree-showcase .section-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #001f4d;
+    position: relative;
+    z-index: 2;
+  }
+
+  .degree-showcase .university-name {
+    font-size: 2.5rem;
+    color: #f57c00;
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+    width: fit-content;
+    margin: auto;
+  }
+
+  .degree-showcase .university-name span{
+      font-size: 1rem;
       position: absolute;
-      transform: translateY(25%);
-      left:0;
-      padding-left:2rem;
-      padding-right:2rem;
-      border-top-left-radius: 20px;
-      border-bottom-left-radius: 20px;
-      /* border-bottom-right-radius: 20px; */
-    /* width: 250px; */
-    background-color: #f9f9f9;
-    /* box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05); */
-  }
-  .logo img{
-      max-width: 220px;
+      top:-15px;
+      left: 0;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #001f4d;
   }
 
-  .logo .logo-wrapper{
-      position: relative;
+  .degree-showcase .degree-card {
+    max-width: 450px;
+    transition: transform 0.3s ease;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
   }
 
-  .logo .logo-wrapper::before{
-      content: '';
-      position: absolute;
-      width: 149px;
-      height: 60px;
-      background-color: #f9f9f9;
-      bottom: 2.1rem;
-      right: -9.6rem;
-      transform: rotate(-30deg);
-  }
-  .logo-space{
-      min-width: 240px;
+  .degree-showcase .degree-card:hover {
+    transform: scale(1.02);
   }
 
-  nav a {
-    text-decoration: none;
-    color: #333;
+  .degree-showcase .degree-caption {
     font-size: 1.1rem;
-    transition: 0.3s ease;
+    color: #333;
+    font-weight: 500;
+    position: relative;
+    z-index: 2;
   }
 
-  nav a:hover {
-    color: #ff6600;
+  /* Blobs */
+  .degree-showcase .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+    z-index: 1;
+    animation: float 10s infinite ease-in-out alternate;
   }
 
-  .apply-btn {
-    background-color: #ff6600;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 25px;
-    font-weight: 600;
-    transition: 0.3s ease;
+  .degree-showcase .blob1 {
+    background: #ff6f61;
+    width: 300px;
+    height: 300px;
+    top: 10%;
+    left: -100px;
   }
 
-  .apply-btn:hover {
-    background-color: #e65c00;
+  .degree-showcase .blob2 {
+    background: #1e88e5;
+    width: 200px;
+    height: 200px;
+    bottom: 5%;
+    right: -60px;
   }
 
-  .call-btn {
-    background-color: #0c1e4b;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 25px;
-    font-weight: 600;
-    text-decoration: none;
-  }
-  .nav-options{
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      gap:2.5rem;
-      margin-left:-120px;
-      align-items: center;
-      font-size: 1.4rem;
-  }
-  .nav-options a{
-    background-color: #f9f9f9;
-    z-index: 99;
+  .degree-showcase .blob3 {
+    background: #ffd54f;
+    width: 150px;
+    height: 150px;
+    top: 50%;
+    right: 10%;
   }
 
-  @media screen and (max-width: 768px) {
-    nav {
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      padding: 1rem;
+  @keyframes float {
+    0% { transform: translateY(0) translateX(0); }
+    100% { transform: translateY(-30px) translateX(20px); }
+  }
+
+  @media (max-width: 768px) {
+    .degree-showcase .section-title {
+      font-size: 2rem;
+    }
+    .degree-showcase .university-name {
+      font-size: 1.5rem;
+    }
+    .blob1, .blob2, .blob3 {
+      filter: blur(60px);
     }
   }
+  .degree-showcase .btn-dark{
+      background-color: #001f4d;
+      padding-top:0;
+  }
+  .degree-showcase .btn.btn-dark::after{
+      background-color: #f57c00;
+  }
+
+  
+
+@media screen and (max-width:786px) {
+  .tmu-text-primary{
+      font-size: 32px;
+  }
+}
+
+/* --- Flourish Mobile Navbar Styles (Optimized for <= 540px) --- */
+
+/* Apply mobile styles by default */
+.flourish-navbar-container {
+  position: fixed;
+  /* Changed from sticky for consistent positioning */
+  top: 1rem;
+  /* Adjusted default top */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: 95%;
+  /* Adjusted default width */
+  /* max-width removed - not needed for mobile-only */
+  margin-bottom: 2rem;
+  background-color: #ffffff;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: padding 0.5s ease-in-out, background-color 0.5s ease-in-out;
+  padding: 8px 15px;
+  /* Adjusted default padding */
+  display: block;
+  /* Ensure it's displayed by default (will be hidden by media query) */
+}
+
+.flourish-navbar-visible-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 45px;
+  /* Adjusted min-height */
+}
+
+.flourish-navbar-logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  /* Adjusted default font size */
+  font-weight: 600;
+  color: #222;
+  text-decoration: none;
+  /* Ensure no underline */
+}
+
+.flourish-navbar-logo .logo {
+  max-width: 120px;
+  /* Set max-width directly */
+  height: auto;
+  /* Maintain aspect ratio */
+  margin-right: 8px;
+  /* Add some space if logo text exists */
+}
+
+.flourish-navbar-toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 3px;
+  width: 30px;
+  height: 25px;
+  position: relative;
+}
+
+.flourish-navbar-toggle-btn .icon-bar {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #333;
+  border-radius: 3px;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Hamburger to X Animation */
+.flourish-navbar-container.is-open .flourish-navbar-toggle-btn .top-bar {
+  transform: translateY(0px) rotate(45deg);
+  transform-origin: 0% 50%; /* Center vertical origin */
+}
+
+.flourish-navbar-container.is-open .flourish-navbar-toggle-btn .middle-bar {
+  opacity: 0;
+}
+
+.flourish-navbar-container.is-open .flourish-navbar-toggle-btn .bottom-bar {
+  transform: translateY(2px) rotate(-45deg);
+  transform-origin: 0% 50%; /* Center vertical origin */
+}
+
+
+/* Menu Content Base (Closed) */
+.flourish-navbar-menu-content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.55s cubic-bezier(0.23, 1, 0.32, 1),
+              opacity 0.4s ease-in-out 0.1s,
+              padding-top 0.55s cubic-bezier(0.23, 1, 0.32, 1),
+              margin-top 0.55s cubic-bezier(0.23, 1, 0.32, 1), /* Added margin transition */
+              border-top-color 0.55s cubic-bezier(0.23, 1, 0.32, 1); /* Added border transition */
+  padding-top: 0;
+  border-top: 1px solid transparent;
+  margin-top: 0;
+}
+
+/* Menu Content Open */
+.flourish-navbar-container.is-open .flourish-navbar-menu-content {
+  max-height: calc(100vh - 100px); /* Use viewport height relative */
+  opacity: 1;
+  padding-top: 15px;
+  margin-top: 15px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  overflow-y: auto;
+}
+
+/* Main Nav List */
+.flourish-main-nav-list {
+  list-style: none;
+  padding: 0 10px 15px 10px; /* Reduced horizontal padding */
+  margin: 0;
+}
+
+.flourish-main-nav-list>li {
+  margin-bottom: 8px; /* Reduced spacing */
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+.flourish-main-nav-list>li:last-child {
+  margin-bottom: 0;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* Direct links */
+.flourish-main-nav-list>li>a {
+  font-size: 1.1rem; /* Adjusted font size */
+  font-weight: 500;
+  color: #333;
+  display: block;
+  padding: 8px 5px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.flourish-main-nav-list>li>a:hover {
+  color: #000;
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+/* Submenu Toggle Button */
+.flourish-submenu-toggle {
+  font-size: 1.1rem; /* Adjusted font size */
+  font-weight: 500;
+  color: #333;
+  background: none;
+  border: none;
+  padding: 8px 5px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: inherit;
+  transition: color 0.2s ease, background-color 0.2s ease;
+  border-radius: 4px;
+}
+
+.flourish-submenu-toggle:hover {
+  color: #000;
+  /* Removed background hover for toggle to match link hover */
+}
+
+.submenu-arrow {
+  display: inline-block;
+  font-size: 0.7em;
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
+
+.flourish-nav-item-has-submenu.submenu-is-open>.flourish-submenu-toggle .submenu-arrow {
+  transform: rotate(90deg);
+}
+
+/* Submenu Container */
+.flourish-submenu {
+  list-style: none;
+  padding-left: 0px;
+  margin: 5px 0 0 5px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s ease-out, opacity 0.3s ease-in, margin-top 0.4s ease-out, padding-top 0.4s ease-out;
+  padding-top: 0;
+}
+
+.flourish-nav-item-has-submenu.submenu-is-open>.flourish-submenu {
+  max-height: 300px;
+  opacity: 1;
+  margin-top: 10px;
+  padding-top: 5px;
+}
+
+/* Submenu Tags */
+.flourish-submenu li {
+  margin-bottom: 8px;
+}
+
+.flourish-submenu li:last-child {
+  margin-bottom: 0;
+}
+
+.submenu-tag {
+  display: inline-block;
+  padding: 5px 12px; /* Adjusted padding */
+  font-size: 0.85rem; /* Adjusted font size */
+  color: #555;
+  border-radius: 16px; /* Pill shape */
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.submenu-tag:hover {
+  background-color: #e5e5e5;
+  color: #111;
+  border-color: #d0d0d0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+
+/* --- Hide Navbar on Larger Screens --- */
+@media (min-width: 992px) {
+  .flourish-navbar-container {
+      display: none;
+  }
+}
+@media (max-width: 992px) {
+  .flourish-navbar-container {
+      width: 85%;
+  }
+}
+@media (max-width: 540px) {
+  .flourish-navbar-container {
+      width: 95%;
+  }
+}
+
+#heroCarousel .carousel-inner .carousel-item:nth-child(1){
+  background-image: url('../img/banner24.jpg');
+}
+
+#heroCarousel .carousel-inner .carousel-item:nth-child(2){
+  background-image: url('../img/banner22.jpg');
+}
+
+#heroCarousel .carousel-inner .carousel-item:nth-child(3){
+  background-image: url('../img/desktop-banner1.jpg');
+}
+
+@media screen and (max-width:992px) {
+  #heroCarousel .carousel-inner .carousel-item:nth-child(1){
+    background-image: url('../img/tab-banner1.jpg');
+  }
+}
+
+@media screen and (max-width:540px) {
+  #heroCarousel .carousel-inner .carousel-item:nth-child(1){
+    background-image: url('../img/mobile-banner1.jpg');
+  }
+}
+
+
+
+
+
+/* Gallery Section Css */
+
+/* Gallery Section Header Styles */
+.gallery-header .section-title {
+  font-weight: 700;
+  color: #2c3e50; /* Dark blue */
+}
+
+
+.gallery-header .section-subtitle {
+  color: #6c757d; /* Bootstrap secondary text color */
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Styling for the Gallery Item Link (within Bootstrap columns) */
+.gallery-item-bs {
+  display: block; /* Fill the column */
+  overflow: hidden; /* Hide image overflow */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none; /* Remove underline from link */
+  background-color: #fff; /* White background in case image doesn't load */
+
+  /* --- Aspect Ratio Control --- */
+  /* Enforce a consistent aspect ratio for grid uniformity */
+  /* Common options: 1/1 (square), 4/3, 3/2, 16/9 */
+  aspect-ratio: 4 / 3;
+}
+
+.gallery-item-bs:hover {
+  transform: translateY(-5px); /* Lift effect */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.12); /* Enhanced shadow */
+}
+
+/* Styling for the Image inside the Link */
+.gallery-item-bs img {
+  display: block; /* Remove extra space */
+  /* No width/height needed if using img-fluid + aspect-ratio on parent */
+  /* img-fluid (from Bootstrap) handles max-width: 100% and height: auto */
+
+  /* Crucial for aspect ratio control: */
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Scale to cover, crop if needed */
+
+  transition: transform 0.4s ease-in-out; /* Smooth zoom effect */
+}
+
+.gallery-item-bs:hover img {
+  transform: scale(1.05); /* Zoom image on hover */
+}
+
+
+/* --- Lightbox Customization (Optional) --- */
+.lb-data .lb-caption {
+font-size: 0.95rem;
+color: #eee;
+}
+
+.lb-data .lb-number {
+color: #ccc;
+font-size: 0.9rem;
+}
+
+.lightboxOverlay {
+  background-color: rgba(20, 20, 20, 0.92); /* Slightly darker overlay */
+}

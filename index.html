@@ -17,6 +17,14 @@
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <link rel="stylesheet" href="./assets/css/nav.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- Lightbox2 CSS CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="./assets/css/reel.css">
 </head>
 
 <body>
@@ -32,25 +40,119 @@
     </div>
     <!-- preloader area end -->
 
-    <div class="banner-section">
-        <nav>
-            <div class="logo">
-                <div class="logo-wrapper">
-                    <img src="./logo.png" alt="">
-                </div>
+    <!-- navbar  -->
+    <nav class="cus-nav d-none d-lg-flex">
+        <div class="logo">
+            <div class="logo-wrapper">
+                <img src="./logo.png" alt="">
             </div>
-            <div class="logo-space"></div>
-            <div class="nav-options">
-                <a href="#">Blogs</a>
-                <a href="#">Programme</a>
-                <a href="#">Apply Now</a>
-                <!-- <a href="#" class="apply-btn">Apply now</a>
-            <a href="tel:18002701490" class="call-btn">1800-270-1490</a> -->
+        </div>
+        <div class="logo-space"></div>
+        <div class="nav-options">
+            <a href="#">Home</a>
+
+            <div class="dropdown">
+                <a href="#">Programmes</a>
+                <ul class="submenu">
+                    <li><a href="/mba-finance">MBA Finance</a></li>
+                    <li><a href="/mba-hr">MBA HR Management</a></li>
+                    <li><a href="/mba-marketing">MBA Marketing</a></li>
+                </ul>
             </div>
-        </nav>
+
+            <div class="dropdown">
+                <a href="#">Admissions</a>
+                <ul class="submenu">
+                    <li><a href="/admission-rules">Admission Rules</a></li>
+                    <li><a href="/how-to-apply">How to Apply</a></li>
+                </ul>
+            </div>
+
+            <a href="#">Facilities</a>
+            <a href="#" class="apply-btn">Apply Now</a>
+        </div>
+    </nav>
 
 
+    <!-- Mobile Navbar Container - Add this to your HTML body -->
+    <nav class="flourish-navbar-container" id="flourishNavbar">
+        <div class="flourish-navbar-visible-area">
+            <!-- Logo -->
+            <a href="/" class="flourish-navbar-logo"> <!-- Changed href to "/" for homepage -->
+                <img src="./logo.png" alt="Logo" class="logo"> <!-- Ensure alt text -->
+            </a>
+
+            <!-- Toggle Button -->
+            <button class="flourish-navbar-toggle-btn" id="flourishNavbarToggle" aria-label="Toggle Menu"
+                aria-expanded="false" aria-controls="flourishNavbarMenu">
+                <span class="icon-bar top-bar"></span>
+                <span class="icon-bar middle-bar"></span>
+                <span class="icon-bar bottom-bar"></span>
+            </button>
+        </div>
+
+        <!-- Expandable Menu Content -->
+        <div class="flourish-navbar-menu-content" id="flourishNavbarMenu">
+            <ul class="flourish-main-nav-list">
+                <li><a href="/">Home</a></li>
+
+                <li class="flourish-nav-item-has-submenu">
+                    <button type="button" class="flourish-submenu-toggle">
+                        Programmes <span class="submenu-arrow">▸</span>
+                    </button>
+                    <ul class="flourish-submenu">
+                        <li><a href="/mba-finance" class="submenu-tag">MBA Finance</a></li>
+                        <li><a href="/mba-hr" class="submenu-tag">MBA HR Management</a></li>
+                        <li><a href="/mba-marketing" class="submenu-tag">MBA Marketing</a></li>
+                    </ul>
+                </li>
+
+                <li class="flourish-nav-item-has-submenu">
+                    <button type="button" class="flourish-submenu-toggle">
+                        Admissions <span class="submenu-arrow">▸</span>
+                    </button>
+                    <ul class="flourish-submenu">
+                        <li><a href="/admission-rules" class="submenu-tag">Admission Rules</a></li>
+                        <li><a href="/how-to-apply" class="submenu-tag">How to Apply</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="/facilities">Facilities</a></li>
+                <li><a href="/apply-now">Apply Now</a></li>
+            </ul>
+        </div>
+        <!-- End of Expandable Menu Content -->
+    </nav>
+    <!-- End Mobile Navbar Container -->
+
+
+    <!-- Hero Carousel -->
+    <div id="heroCarousel" class="carousel slide carousel-fade carousel-dark" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"
+                aria-current="true"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+        </div>
+
+        <div class="carousel-inner">
+            <div class="carousel-item active"></div>
+            <div class="carousel-item"></div>
+            <div class="carousel-item"></div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
 
     <!-- search popup start-->
     <div class="td-search-popup" id="td-search-popup">
@@ -172,6 +274,7 @@
         </div>
     </div>
     <!-- course area End -->
+
     <div class="container d-none d-sm-block">
         <div class="row justify-content-center">
             <div class="col-xl-8 col-lg-10 col-md-11">
@@ -270,16 +373,13 @@
             </div>
         </div>
 
-    </div>
+
 
     <!-- work area start -->
-    <div class="work-area pd-top-110">
+    <div class="work-area">
         <div class="container">
-            <div class="section-title">
-                <div class="col-lg-6 align-self-center">
-                    <h6 class="sub-title right-line">Why Choose TMU</h6>
-                    <h2 class="title">How it works?</h2>
-                </div>
+            <div class="section-title style-white text-center mb-4 mb-md-5">
+                <h2 class="title">Why Choose TMU?</h2>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-6 col-md-6">
@@ -366,6 +466,35 @@
         </div>
     </div>
     <!-- work area end -->
+
+
+    <!-- Degree Section -->
+    <!-- Degree Showcase Section -->
+    <section class="degree-showcase py-5 position-relative overflow-hidden">
+        <!-- Gradient Blobs -->
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+
+        <div class="container text-center position-relative">
+            <p class="university-name mb-4"><span>Proudly Earned at</span> Teerthanker Mahaveer University</p>
+
+            <div class="degree-card shadow mx-auto">
+                <img src="./assets/img/degree.webp" alt="TMU Degree Certificate" class="img-fluid rounded-3" />
+            </div>
+
+            <p class="mt-4 degree-caption">
+                Master of Business Administration<br />
+                <span class="badge bg-primary-subtle text-primary-emphasis mt-2">Online Mode | First Division with
+                    Distinction</span>
+            </p>
+
+            <!-- Optional CTA -->
+            <a href="#" class="btn btn-dark mt-3 px-4 ">Explore Our MBA Program</a>
+        </div>
+    </section>
+
+
 
     <div class="work-area pd-top-60">
         <div class="container">
@@ -531,6 +660,82 @@
     </div>
 
 
+    <!-- ============================ Reel Showcase Section Start ============================ -->
+    <section class="tmu-reel-showcase py-5 position-relative">
+        <div class="tmu-reel-background-element tmu-reel-bg-el-1"></div>
+        <div class="tmu-reel-background-element tmu-reel-bg-el-2"></div>
+
+        <div class="container position-relative">
+            <h2 class="tmu-reel-showcase__title text-center mb-5">Student Stories & Campus Life</h2>
+
+            <div class="tmu-reel-swiper-container position-relative">
+
+                <div class="swiper tmu-reel-swiper">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide">
+                            <div class="tmu-reel-item">
+                                <iframe class="tmu-reel-video" src="https://www.instagram.com/reel/DHtGgTsJLRi/embed/"
+                                    frameborder="0" scrolling="no" allowtransparency="true" allowfullscreen="true"
+                                    loading="lazy" title="Instagram Reel 1">
+                                </iframe>
+                            </div>
+                        </div>
+                    
+                        <div class="swiper-slide">
+                            <div class="tmu-reel-item">
+                                <iframe class="tmu-reel-video" src="https://www.instagram.com/reel/DHn57DfSTzI/embed/"
+                                    frameborder="0" scrolling="no" allowtransparency="true" allowfullscreen="true"
+                                    loading="lazy" title="Instagram Reel 2">
+                                </iframe>
+                            </div>
+                        </div>
+                    
+                        <div class="swiper-slide">
+                            <div class="tmu-reel-item">
+                                <iframe class="tmu-reel-video" src="https://www.instagram.com/reel/DCT49FeOt6x/embed/"
+                                    frameborder="0" scrolling="no" allowtransparency="true" allowfullscreen="true"
+                                    loading="lazy" title="Instagram Reel 3">
+                                </iframe>
+                            </div>
+                        </div>
+                    
+                        <div class="swiper-slide">
+                            <div class="tmu-reel-item">
+                                <iframe class="tmu-reel-video" src="https://www.instagram.com/reel/DCJR2JQIgOX/embed/"
+                                    frameborder="0" scrolling="no" allowtransparency="true" allowfullscreen="true"
+                                    loading="lazy" title="Instagram Reel 4">
+                                </iframe>
+                            </div>
+                        </div>
+                    
+                        <div class="swiper-slide">
+                            <div class="tmu-reel-item">
+                                <iframe class="tmu-reel-video" src="https://www.instagram.com/reel/DCEuwZbJT2H/embed/"
+                                    frameborder="0" scrolling="no" allowtransparency="true" allowfullscreen="true"
+                                    loading="lazy" title="Instagram Reel 5">
+                                </iframe>
+                            </div>
+                        </div>
+                    
+                    </div>
+                    
+                </div>
+
+                <div class="tmu-swiper-nav tmu-swiper-button-prev">
+                    <i class="bi bi-chevron-left"></i>
+                </div>
+                <div class="tmu-swiper-nav tmu-swiper-button-next">
+                    <i class="bi bi-chevron-right"></i>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- ============================ Reel Showcase Section End ============================ -->
+
+
+
     <!-- faq area start -->
     <div class="faq-area mt-4">
         <div class="container">
@@ -551,7 +756,7 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <ul class="single-list-wrap">
-                                        <li class="single-list-inner style-check-box bg-light-green p-3 b-radius-5">
+                                        <li class="single-list-inner style-check-box bg-light-blue p-3 b-radius-5">
                                             <div class="media">
                                                 <div class="media-left mr-0">
                                                     <i class="fa fa-check"></i>
@@ -566,7 +771,7 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <ul class="single-list-wrap">
-                                        <li class="single-list-inner style-check-box bg-light-green p-3 b-radius-5">
+                                        <li class="single-list-inner style-check-box bg-light-blue p-3 b-radius-5">
                                             <div class="media">
                                                 <div class="media-left mr-0">
                                                     <i class="fa fa-check"></i>
@@ -666,26 +871,29 @@
         <div class="footer-top">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4 col-6">
-                        <a href="index.html"><img src="assets/img/logo-3.png" width="40%" alt="img"></a>
-                        <div class="details">
-                            <p>Edumint tetur sadipscing elitr tempor invidunt ut labore et dolore magna aliquyam
-                                erat, sed diam voluptua.</p>
-                            <ul class="social-media">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                            </ul>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="widget widget_about text-center">
+                            <a href="index.html"><img src="logo.png" alt="img"></a>
+                            <div class="details">
+                                <p>Edumint tetur sadipscing elitr tempor invidunt ut labore et dolore magna aliquyam
+                                    erat, sed diam voluptua.</p>
+                                    <ul class="social-media">
+                                        <li><a href="#"><img src="https://cdn-icons-png.flaticon.com/128/5968/5968764.png" alt="Facebook"></a></li>
+                                        <li><a href="#"><img src="https://cdn-icons-png.flaticon.com/128/5969/5969020.png" alt="X"></a></li> 
+                                        <li><a href="#"><img src="https://cdn-icons-png.flaticon.com/128/3955/3955024.png" alt="Instagram"></a></li>
+                                        <li><a href="#"><img src="https://cdn-icons-png.flaticon.com/128/4494/4494497.png" alt="Pinterest"></a></li>
+                                    </ul>
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-6">
                         <div class="widget widget_contact">
                             <h4 class="widget-title">Contact Us</h4>
                             <ul class="details">
-                                <li><i class="fa fa-map-marker"></i> 420 Love Sreet 133/2 Street NewYork</li>
-                                <li><i class="fa fa-envelope"></i> info.contact@gmail.com</li>
-                                <li><i class="fa fa-phone"></i> 012 345 678 9101</li>
+                                <li><i class="fa fa-map-marker"></i> Delhi Road, NH9, Moradabad, Uttar Pradesh 244001
+                                </li>
+                                <li><i class="fa fa-envelope"></i> online@tmu.ac.in</li>
+                                <li><i class="fa fa-phone"></i> +91 8865182947</li>
                             </ul>
                         </div>
                     </div>
@@ -738,8 +946,82 @@
         crossorigin="anonymous"></script>
     <!-- all plugins here -->
     <script src="assets/js/vendor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- main js  -->
     <script src="assets/js/main.js"></script>
+
+    <!-- Lightbox2 JS CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+
+    <!-- Optional: Lightbox Configuration (if needed) -->
+    <script>
+        lightbox.option({
+          'resizeDuration': 200,
+          'wrapAround': true, // Allows navigating from last image back to first
+          'fadeDuration': 300,
+          // 'albumLabel': "Image %1 of %2" // Customize caption format if desired
+        })
+    </script>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            const tmuReelSwiper = new Swiper('.tmu-reel-swiper', {
+                // Core parameters for larger slides
+                slidesPerView: 1.3,   // Show fewer slides initially
+                spaceBetween: 20,     // Adjust space between larger slides
+                centeredSlides: true, // Keep active slide centered
+                loop: true,           // Enable continuous looping
+                grabCursor: true,
+
+                // Responsive Breakpoints - Showing fewer slides per view
+                breakpoints: {
+                    // 576px and up
+                    576: {
+                        slidesPerView: 1.8, // Still quite large
+                        spaceBetween: 25
+                    },
+                    // 768px and up (Tablet)
+                    768: {
+                        slidesPerView: 2.5, // Maybe 2 full and parts of neighbours
+                        spaceBetween: 30
+                    },
+                    // 992px and up (Small Desktop)
+                    992: {
+                        slidesPerView: 3.2, // 3 full and parts
+                        spaceBetween: 35
+                    },
+                    // 1200px and up (Large Desktop)
+                    1200: {
+                        slidesPerView: 3.5, // Show even fewer for larger display
+                        spaceBetween: 40
+                    }
+                },
+
+                // Navigation arrows - Using the new classes
+                navigation: {
+                    nextEl: '.tmu-swiper-button-next', // Target the wrapper class
+                    prevEl: '.tmu-swiper-button-prev', // Target the wrapper class
+                },
+
+                // Keyboard navigation
+                keyboard: {
+                    enabled: true,
+                    onlyInViewport: true,
+                },
+
+                // Accessibility
+                a11y: {
+                    prevSlideMessage: 'Previous reel',
+                    nextSlideMessage: 'Next reel',
+                },
+            });
+
+            // --- Overlay interaction code removed ---
+
+        }); // End DOMContentLoaded
+    </script>
 </body>
 
 </html>
