@@ -481,6 +481,72 @@ $(document).ready(function () {
 });
 
 
+const images = [
+    "assets/img/gallery/1.webp",
+    "assets/img/gallery/2.webp",
+    "assets/img/gallery/3.webp",
+    "assets/img/gallery/4.webp",
+    "assets/img/gallery/5.webp",
+    "assets/img/gallery/6.webp",
+    "assets/img/gallery/7.webp",
+    "assets/img/gallery/8.webp",
+    "assets/img/gallery/9.webp",
+    "assets/img/gallery/10.webp",
+    "assets/img/gallery/11.webp",
+    "assets/img/gallery/12.webp",
+    "assets/img/gallery/13.webp",
+    "assets/img/gallery/14.webp",
+    "assets/img/gallery/15.webp",
+    "assets/img/gallery/16.webp",
+    "assets/img/gallery/17.webp",
+    "assets/img/gallery/18.webp",
+    // Add more as needed
+  ];
+  let currentImageIndex = 0;
+  
+  function openLightbox(index) {
+    currentImageIndex = index;
+    const lightboxImg = document.getElementById("custom-lightbox-img");
+    lightboxImg.classList.remove('show');
+    setTimeout(() => {
+      lightboxImg.src = images[currentImageIndex];
+      lightboxImg.classList.add('show');
+    }, 200);
+    document.getElementById("custom-lightbox-caption").innerText =
+      document.querySelectorAll('.custom-gallery-item')[currentImageIndex].querySelector('.custom-caption').innerText;
+    document.getElementById("custom-lightbox").style.display = "flex";
+  }
+  
+  function closeLightbox(event) {
+    if (event.target.id === "custom-lightbox" || event.target.classList.contains('custom-close-btn')) {
+      document.getElementById("custom-lightbox").style.display = "none";
+      document.body.style.overflow = "auto";
+    }
+  }
+  
+  function nextImage() {
+    currentImageIndex = (currentImageIndex + 1) % images.length;
+    const lightboxImg = document.getElementById("custom-lightbox-img");
+    lightboxImg.classList.remove('show');
+    setTimeout(() => {
+      lightboxImg.src = images[currentImageIndex];
+      lightboxImg.classList.add('show');
+    }, 200);
+    document.getElementById("custom-lightbox-caption").innerText =
+      document.querySelectorAll('.custom-gallery-item')[currentImageIndex].querySelector('.custom-caption').innerText;
+  }
+  
+  function prevImage() {
+    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+    const lightboxImg = document.getElementById("custom-lightbox-img");
+    lightboxImg.classList.remove('show');
+    setTimeout(() => {
+      lightboxImg.src = images[currentImageIndex];
+      lightboxImg.classList.add('show');
+    }, 200);
+    document.getElementById("custom-lightbox-caption").innerText =
+      document.querySelectorAll('.custom-gallery-item')[currentImageIndex].querySelector('.custom-caption').innerText;
+  }
 // recruiter section JS start
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -3959,55 +3959,7 @@ ul {
   margin-right: 0;
 }
 
-/*********** single-gallery-inner ************/
-.single-gallery-inner {
-  margin-bottom: 30px;
-  position: relative;
-  overflow: hidden;
-  border-radius: 7px;
-}
 
-.single-gallery-inner .thumb {
-  position: relative;
-  overflow: hidden;
-}
-
-.single-gallery-inner .thumb:after {
-  content: "";
-  position: absolute;
-  background-image: linear-gradient(to top, #022334 11%, rgba(255, 255, 255, 0));
-  height: 85%;
-  width: 100%;
-  left: 0;
-  bottom: 0;
-  z-index: 2;
-}
-
-.single-gallery-inner .thumb img {
-  transition: 0.7s;
-}
-
-.single-gallery-inner .details {
-  position: absolute;
-  bottom: 0;
-  padding: 25px 30px;
-  z-index: 3;
-}
-
-.single-gallery-inner .details h4 {
-  color: #fff;
-  margin-bottom: 0;
-}
-
-.single-gallery-inner .details span {
-  color: #fff;
-  display: block;
-  margin-bottom: 5px;
-}
-
-.single-gallery-inner:hover .thumb img {
-  transform: scale(1.1);
-}
 
 /********** contact-list-inner ************/
 .contact-list-inner {
@@ -4942,17 +4894,17 @@ ul {
   color: #1DC295;
 }
 
-/* Gallery Grid css start */
-.gallery {
+/* Custom Gallery Grid */
+.custom-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 15px;
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.gallery-item {
+.custom-gallery-item {
   position: relative;
   overflow: hidden;
   border-radius: 10px;
@@ -4960,41 +4912,89 @@ ul {
   transition: transform 0.3s ease;
 }
 
-.gallery-item img {
+.custom-gallery-item img {
   width: 100%;
   height: auto;
   display: block;
   transition: transform 0.3s ease;
+  filter: brightness(1);
 }
 
-.gallery-item:hover {
+.custom-gallery-item:hover {
   transform: scale(1.05);
 }
 
-.gallery-item img:hover {
+.custom-gallery-item img:hover {
   transform: scale(1.1);
+  filter: brightness(0.5);
 }
 
-/* Add text caption */
-.gallery-item .caption {
+.custom-caption {
   position: absolute;
-  bottom: -50px; /* Start from below the image */
+  bottom: -50px;
   left: 0;
   width: 100%;
   text-align: center;
   color: white;
   font-size: 1.2rem;
-  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
   padding: 10px;
-  transition: bottom 0.3s ease; /* Smooth transition for the hover effect */
+  transition: bottom 0.3s ease;
 }
 
-.gallery-item:hover .caption {
-  bottom: 0; /* Move the caption into view */
+.custom-gallery-item:hover .custom-caption {
+  bottom: 0;
 }
 
+/* Custom Lightbox */
+#custom-lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  cursor: pointer;
+}
 
-.prev, .next {
+.custom-lightbox-content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-lightbox-content img {
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.01s ease-in-out;
+  opacity: 0;
+  border: 2px solid white;
+}
+
+.custom-lightbox-content img.show {
+  opacity: 1;
+}
+
+.custom-lightbox-caption {
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  color: white;
+  font-size: 1rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px 10px;
+  border-radius: 5px;
+  max-width: 250px;
+  text-align: right;
+}
+
+.custom-prev, .custom-next {
   position: fixed;
   top: 50%;
   transform: translateY(-50%);
@@ -5009,16 +5009,15 @@ ul {
   z-index: 10;
 }
 
-.prev {
+.custom-prev {
   left: 20px;
 }
 
-.next {
+.custom-next {
   right: 20px;
 }
 
-/* Close Button */
-.close-btn {
+.custom-close-btn {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -5028,35 +5027,15 @@ ul {
   z-index: 10;
 }
 
-
-/* Mobile-specific styles */
-@media (max-width: 767px) {
-  .gallery {
-      display: none;  /* Hide grid layout */
-  }
-
-  .owl-carousel {
-      display: block;  /* Show carousel */
-  }
-
-  .owl-carousel .gallery-item {
-      display: block;  /* Ensure images are visible in the carousel */
+@media (max-width: 582px) {
+  .custom-gallery {
+    grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+    gap: 7px;
   }
 }
 
-/* Desktop View Styles */
-@media (min-width: 768px) {
-  .owl-carousel {
-      display: none;  /* Hide carousel on desktop */
-  }
+/* end gallery grid css */
 
-  .gallery {
-      display: grid;  /* Use grid layout */
-  }
-}
-
-
-/* Gallery Grid css end */
 
 .why-icon{
   padding: 10px;
