@@ -481,8 +481,6 @@ $(document).ready(function () {
 });
 
 
-
-// List of image sources in the gallery
 const images = [
     "assets/img/gallery/1.webp",
     "assets/img/gallery/2.webp",
@@ -502,81 +500,55 @@ const images = [
     "assets/img/gallery/16.webp",
     "assets/img/gallery/17.webp",
     "assets/img/gallery/18.webp",
-    // Add more image paths here
-];
 
-let currentImageIndex = 0;  // Tracks the current image in the lightbox
-
-// Open the lightbox and display the selected image
-function openLightbox(index) {
+    // Add more as needed
+  ];
+  let currentImageIndex = 0;
+  
+  function openLightbox(index) {
     currentImageIndex = index;
-    const lightboxImg = document.getElementById("lightbox-img");
-
-    // Fade out the image before changing the src
-    lightboxImg.classList.remove('show');  // Remove the show class (opacity 1)
-
-    // Wait for the fade-out to finish before changing the image
-    setTimeout(function () {
-        lightboxImg.src = images[currentImageIndex];
-        lightboxImg.classList.add('show');  // Add the show class to fade in
-    }, 200);  // Wait for 0.2 sec before changing the image (matching the CSS transition duration)
-
-    
-    // Update the caption in lightbox
-    document.getElementById("lightbox-caption").innerText = document.querySelectorAll('.gallery-item')[currentImageIndex].querySelector('.caption').innerText;
-    
-
-    document.getElementById("lightbox").style.display = "flex";
-}
-
-// Close the lightbox
-function closeLightbox(event) {
-    if (event.target === document.getElementById("lightbox") || event.target === document.querySelector('.close-btn')) {
-        document.getElementById("lightbox").style.display = "none";
-        document.body.style.overflow = "auto";  // Re-enable page scrolling when lightbox is closed
+    const lightboxImg = document.getElementById("custom-lightbox-img");
+    lightboxImg.classList.remove('show');
+    setTimeout(() => {
+      lightboxImg.src = images[currentImageIndex];
+      lightboxImg.classList.add('show');
+    }, 200);
+    document.getElementById("custom-lightbox-caption").innerText =
+      document.querySelectorAll('.custom-gallery-item')[currentImageIndex].querySelector('.custom-caption').innerText;
+    document.getElementById("custom-lightbox").style.display = "flex";
+  }
+  
+  function closeLightbox(event) {
+    if (event.target.id === "custom-lightbox" || event.target.classList.contains('custom-close-btn')) {
+      document.getElementById("custom-lightbox").style.display = "none";
+      document.body.style.overflow = "auto";
     }
-}
-
-// Show the next image in the gallery
-function nextImage() {
-    currentImageIndex = (currentImageIndex + 1) % images.length;  // Wrap around to first image after the last
-    const lightboxImg = document.getElementById("lightbox-img");
-
-    // Fade out the image before changing the src
-    lightboxImg.classList.remove('show');  // Remove the show class (opacity 1)
-
-    // Wait for the fade-out to finish before changing the image
-    setTimeout(function () {
-        lightboxImg.src = images[currentImageIndex];
-        lightboxImg.classList.add('show');  // Add the show class to fade in
-    }, 200);  // Wait for 0.2 sec before changing the image
-
-    
-    // Update the caption in lightbox
-    document.getElementById("lightbox-caption").innerText = document.querySelectorAll('.gallery-item')[currentImageIndex].querySelector('.caption').innerText;
-
-}
-
-// Show the previous image in the gallery
-function prevImage() {
-    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;  // Wrap around to last image before the first
-    const lightboxImg = document.getElementById("lightbox-img");
-
-    // Fade out the image before changing the src
-    lightboxImg.classList.remove('show');  // Remove the show class (opacity 1)
-
-    // Wait for the fade-out to finish before changing the image
-    setTimeout(function () {
-        lightboxImg.src = images[currentImageIndex];
-        lightboxImg.classList.add('show');  // Add the show class to fade in
-    }, 200);  // Wait for 0.2 sec before changing the image
-
-    
-    // Update the caption in lightbox
-    document.getElementById("lightbox-caption").innerText = document.querySelectorAll('.gallery-item')[currentImageIndex].querySelector('.caption').innerText;
-}
-
-
+  }
+  
+  function nextImage() {
+    currentImageIndex = (currentImageIndex + 1) % images.length;
+    const lightboxImg = document.getElementById("custom-lightbox-img");
+    lightboxImg.classList.remove('show');
+    setTimeout(() => {
+      lightboxImg.src = images[currentImageIndex];
+      lightboxImg.classList.add('show');
+    }, 200);
+    document.getElementById("custom-lightbox-caption").innerText =
+      document.querySelectorAll('.custom-gallery-item')[currentImageIndex].querySelector('.custom-caption').innerText;
+  }
+  
+  function prevImage() {
+    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+    const lightboxImg = document.getElementById("custom-lightbox-img");
+    lightboxImg.classList.remove('show');
+    setTimeout(() => {
+      lightboxImg.src = images[currentImageIndex];
+      lightboxImg.classList.add('show');
+    }, 200);
+    document.getElementById("custom-lightbox-caption").innerText =
+      document.querySelectorAll('.custom-gallery-item')[currentImageIndex].querySelector('.custom-caption').innerText;
+  }
+// recruiter section JS start
 
 document.addEventListener('DOMContentLoaded', () => {
     const logos = [
@@ -652,14 +624,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     positionImgs();
   });
-
-}
-
-
-// Optional: Autoplay
-const carousel = new bootstrap.Carousel('#heroCarousel', {
-    interval: 100,
-    ride: 'carousel'
-});
-
-
+  // recruiter section JS end

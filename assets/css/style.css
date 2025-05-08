@@ -3959,55 +3959,7 @@ ul {
   margin-right: 0;
 }
 
-/*********** single-gallery-inner ************/
-.single-gallery-inner {
-  margin-bottom: 30px;
-  position: relative;
-  overflow: hidden;
-  border-radius: 7px;
-}
 
-.single-gallery-inner .thumb {
-  position: relative;
-  overflow: hidden;
-}
-
-.single-gallery-inner .thumb:after {
-  content: "";
-  position: absolute;
-  background-image: linear-gradient(to top, #022334 11%, rgba(255, 255, 255, 0));
-  height: 85%;
-  width: 100%;
-  left: 0;
-  bottom: 0;
-  z-index: 2;
-}
-
-.single-gallery-inner .thumb img {
-  transition: 0.7s;
-}
-
-.single-gallery-inner .details {
-  position: absolute;
-  bottom: 0;
-  padding: 25px 30px;
-  z-index: 3;
-}
-
-.single-gallery-inner .details h4 {
-  color: #fff;
-  margin-bottom: 0;
-}
-
-.single-gallery-inner .details span {
-  color: #fff;
-  display: block;
-  margin-bottom: 5px;
-}
-
-.single-gallery-inner:hover .thumb img {
-  transform: scale(1.1);
-}
 
 /********** contact-list-inner ************/
 .contact-list-inner {
@@ -4942,8 +4894,8 @@ ul {
   color: #1DC295;
 }
 
-/* Gallery Grid css start */
-.gallery {
+/* Custom Gallery Grid */
+.custom-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 15px;
@@ -4952,7 +4904,7 @@ ul {
   margin: 0 auto;
 }
 
-.gallery-item {
+.custom-gallery-item {
   position: relative;
   overflow: hidden;
   border-radius: 10px;
@@ -4960,43 +4912,40 @@ ul {
   transition: transform 0.3s ease;
 }
 
-.gallery-item img {
+.custom-gallery-item img {
   width: 100%;
   height: auto;
   display: block;
   transition: transform 0.3s ease;
   filter: brightness(1); /* Normal brightness */
-}
 
-.gallery-item:hover {
+.custom-gallery-item:hover {
   transform: scale(1.05);
 }
 
-.gallery-item img:hover {
+.custom-gallery-item img:hover {
   transform: scale(1.1);
   filter: brightness(0.5); /* Darken the image on hover */
 }
 
-/* Add text caption */
-.gallery-item .caption {
+.custom-caption {
   position: absolute;
-  bottom: -50px; /* Start from below the image */
+  bottom: -50px;
   left: 0;
   width: 100%;
   text-align: center;
   color: white;
   font-size: 1.2rem;
   padding: 10px;
-  transition: bottom 0.3s ease; /* Smooth transition for the hover effect */
+  transition: bottom 0.3s ease;
 }
 
-.gallery-item:hover .caption {
-  bottom: 0; /* Move the caption into view */
+.custom-gallery-item:hover .custom-caption {
+  bottom: 0;
 }
 
-
-/* Lightbox Styles */
-.lightbox {
+/* Custom Lightbox */
+#custom-lightbox {
   position: fixed;
   top: 0;
   left: 0;
@@ -5010,49 +4959,40 @@ ul {
   cursor: pointer;
 }
 
-/* Prevent page scroll when lightbox is open */
-body {
-  overflow: hidden;
-}
-
-.lightbox-content {
+.custom-lightbox-content {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.lightbox-content img {
+.custom-lightbox-content img {
   max-width: 90%;
   max-height: 80vh;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  transition: opacity 0.01s ease-in-out;  /* Adding fade transition */
+  transition: opacity 0.01s ease-in-out;
   opacity: 0;
-  border: 2px solid white;  /* White border around image */
+  border: 2px solid white;
 }
 
-/* Image fade-in effect when transitioning */
-.lightbox-content img.show {
+.custom-lightbox-content img.show {
   opacity: 1;
 }
 
-
-/* Image Caption in the lightbox */
-.lightbox-caption {
+.custom-lightbox-caption {
   position: absolute;
   bottom: 10px;
   right: 20px;
   color: white;
   font-size: 1rem;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 5px 10px;
   border-radius: 5px;
   max-width: 250px;
   text-align: right;
 }
-
-.prev, .next {
+.custom-prev, .custom-next {
   position: fixed;
   top: 50%;
   transform: translateY(-50%);
@@ -5067,16 +5007,15 @@ body {
   z-index: 10;
 }
 
-.prev {
+.custom-prev {
   left: 20px;
 }
 
-.next {
+.custom-next {
   right: 20px;
 }
 
-/* Close Button */
-.close-btn {
+.custom-close-btn {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -5086,14 +5025,13 @@ body {
   z-index: 10;
 }
 
-/* Mobile-specific styles */
 @media (max-width: 582px) {
-  .gallery {
+  .custom-gallery {
     grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
     gap: 7px;
   }
 }
-/* Gallery Grid css end */
+/* end gallery grid css */
 
 .why-icon{
   padding: 10px;
@@ -5246,7 +5184,6 @@ body {
   padding: 0 15px;
   margin: 0 auto;
 }
-
 /* recruters section css start */
 
 .recruiter-section {
@@ -5347,4 +5284,30 @@ body {
     bottom: -200px;
     border-radius: 200px 200px 0 0;
   }
+/* recruiter section css ends */
+
+
+
+
+/* Basic button styling */
+.hover-button {
+  background-color: var(--main-color);  /* Green */
+  border: none;
+  color: var(--heading-color);
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect */
+.hover-button:hover {
+  background-color: var(--main-color);  /* Darker green */
+  color: var(--white-color);
+  transform: scale(1.1); /* Slightly increase the size of the button */
 }
