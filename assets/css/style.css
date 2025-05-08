@@ -4701,7 +4701,7 @@ ul {
 ---------------------------------------------------*/
 .footer-area {
   position: relative;
-  padding-top: 90px;
+  padding-top: 40px;
 }
 
 .footer-area .widget {
@@ -4917,8 +4917,7 @@ ul {
   height: auto;
   display: block;
   transition: transform 0.3s ease;
-  filter: brightness(1);
-}
+  filter: brightness(1); /* Normal brightness */
 
 .custom-gallery-item:hover {
   transform: scale(1.05);
@@ -4926,7 +4925,7 @@ ul {
 
 .custom-gallery-item img:hover {
   transform: scale(1.1);
-  filter: brightness(0.5);
+  filter: brightness(0.5); /* Darken the image on hover */
 }
 
 .custom-caption {
@@ -4993,7 +4992,6 @@ ul {
   max-width: 250px;
   text-align: right;
 }
-
 .custom-prev, .custom-next {
   position: fixed;
   top: 50%;
@@ -5033,9 +5031,7 @@ ul {
     gap: 7px;
   }
 }
-
 /* end gallery grid css */
-
 
 .why-icon{
   padding: 10px;
@@ -5188,9 +5184,6 @@ ul {
   padding: 0 15px;
   margin: 0 auto;
 }
-
-
-
 /* recruters section css start */
 
 .recruiter-section {
@@ -5291,7 +5284,6 @@ ul {
     bottom: -200px;
     border-radius: 200px 200px 0 0;
   }
-}
 /* recruiter section css ends */
 
 

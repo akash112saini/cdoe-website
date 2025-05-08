@@ -500,6 +500,7 @@ const images = [
     "assets/img/gallery/16.webp",
     "assets/img/gallery/17.webp",
     "assets/img/gallery/18.webp",
+
     // Add more as needed
   ];
   let currentImageIndex = 0;
@@ -623,5 +624,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     positionImgs();
   });
-
   // recruiter section JS end
